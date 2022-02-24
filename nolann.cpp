@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include <QtSql/QSqlQuery>
+#include <QDebug>
 
 void MainWindow::afficherTableUtilisateur()
 {
