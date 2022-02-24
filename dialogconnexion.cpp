@@ -13,7 +13,10 @@ DialogConnexion::~DialogConnexion()
     delete ui;
 }
 
-void DialogConnexion::on_pushButtonDialogCancel_clicked()
+void DialogConnexion::on_pushButtonDialogDelete_clicked()
 {
-    close();
+    ui->lineEditDialogUsername->setText("");
+    ui->lineEditDialogPassword->setText("");
+    ui->lineEditDialogDatabaseName->setText("");
+    ui->lineEditDatabaseIP->setText("");
 }
