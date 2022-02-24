@@ -34,7 +34,11 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditDialogPassword"/>
+      <widget class="QLineEdit" name="lineEditDialogPassword">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="labelDialogDatabaseName">
@@ -111,7 +115,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonDialogCancel">
+      <widget class="QPushButton" name="pushButtonDialogDelete">
        <property name="text">
         <string>Delete</string>
        </property>
