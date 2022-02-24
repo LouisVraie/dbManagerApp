@@ -18,8 +18,12 @@ public:
 private slots:
     void on_pushButtonDialogDelete_clicked();
 
+    void on_pushButtonDialogConnection_clicked();
+
 private:
     Ui::DialogConnexion *ui;
+
+    QString username, password, databaseName, databaseIP;
 };
 
 #endif // DIALOGCONNEXION_H
