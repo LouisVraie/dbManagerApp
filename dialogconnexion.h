@@ -16,7 +16,7 @@ public:
     ~DialogConnexion();
 
 private slots:
-    void on_pushButtonDialogCancel_clicked();
+    void on_pushButtonDialogDelete_clicked();
 
 private:
     Ui::DialogConnexion *ui;
