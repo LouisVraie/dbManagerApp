@@ -15,15 +15,24 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    //ugo.cpp
+    void AfficherTable();
+
 private slots:
-    //Nolann
+    //nolann.cpp
     void afficherTableUtilisateur();
+
+    //ugo.cpp
+    void on_listWidget_Table_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
-    //Nolann
+    //nolann.cpp
     QString nomTable,req,nomColonne,resultat;
     int nbColonnes,nbLignes;
+
+    //ugo.cpp
+    QString currentTable;
 };
 
 #endif // MAINWINDOW_H
