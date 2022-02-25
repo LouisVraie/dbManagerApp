@@ -4,7 +4,7 @@
 
 void MainWindow::afficherTableUtilisateur()
 {
-    nomTable = /*NOM DA LA TABLE */;
+    nomTable = "";/*NOM DA LA TABLE */
 
     // AFFICHAGE DU HEADER DE LA TABLE
     nbColonnes = 0;
