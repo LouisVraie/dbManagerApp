@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>329</width>
-    <height>227</height>
+    <height>265</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,6 +65,13 @@
       <widget class="QLineEdit" name="lineEditDatabaseIP"/>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelError">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">

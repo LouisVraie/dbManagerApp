@@ -1,5 +1,6 @@
 #include "dialogconnexion.h"
 #include "ui_dialogconnexion.h"
+#include <QSqlDatabase>
 
 #include <QDebug>
 
@@ -35,11 +36,25 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
     qDebug()<<databaseName;
     databaseIP = ui->lineEditDatabaseIP->text();
     qDebug()<<databaseIP;
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+          db.setHostName(databaseIP);
+          db.setDatabaseName(databaseName);
+          db.setUserName(username);
+          db.setPassword(password);
+          bool ok = db.open();
+          qDebug()<<ok;
+
+    if (ok)
     accept();
+
+    else
+    ui->labelError->setText("Une erreur est survenue !");
+
 
 }
 
-QString DialogConnexion::getUsername()
+/*QString DialogConnexion::getUsername()
 {
     return username;
 }
@@ -58,3 +73,4 @@ QString DialogConnexion::getDatabaseIP()
 {
     return databaseIP;
 }
+*/
