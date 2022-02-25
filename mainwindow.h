@@ -26,6 +26,8 @@ private slots:
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
 
+    void on_listWidget_ListeTable_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::MainWindow *ui;
     //nolann.cpp
