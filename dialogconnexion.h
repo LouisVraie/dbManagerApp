@@ -14,7 +14,7 @@ class DialogConnexion : public QDialog
 public:
     explicit DialogConnexion(QWidget *parent = nullptr);
     ~DialogConnexion();
-/*
+
     QString getUsername();
 
     QString getPassword();
@@ -22,7 +22,7 @@ public:
     QString getDatabaseName();
 
     QString getDatabaseIP();
-*/
+
 private slots:
     void on_pushButtonDialogDelete_clicked();
 

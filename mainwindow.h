@@ -19,14 +19,16 @@ public:
     //ugo.cpp
     void afficherListeTable();
 
+    //remi.cpp
+    bool quitConfirm();
+    void closeEvent(QCloseEvent *event);
+
 private slots:
     //nolann.cpp
     void afficherTableUtilisateur();
 
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
-
-    void on_listWidget_ListeTable_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

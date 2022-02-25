@@ -9,11 +9,37 @@ DialogConnexion::DialogConnexion(QWidget *parent) :
     ui(new Ui::DialogConnexion)
 {
     ui->setupUi(this);
+
+    ui->lineEditDialogUsername->setText("jlopez");
+    ui->lineEditDialogPassword->setText("elini01");
+    ui->lineEditDialogDatabaseName->setText("dbManagerApp_test");
+    ui->lineEditDatabaseIP->setText("172.28.100.3");
+
 }
 
 DialogConnexion::~DialogConnexion()
 {
     delete ui;
+}
+
+QString DialogConnexion::getUsername()
+{
+    return username;
+}
+
+QString DialogConnexion::getPassword()
+{
+    return password;
+}
+
+QString DialogConnexion::getDatabaseName()
+{
+    return databaseName;
+}
+
+QString DialogConnexion::getDatabaseIP()
+{
+    return databaseIP;
 }
 
 void DialogConnexion::on_pushButtonDialogDelete_clicked()
@@ -45,10 +71,9 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
           qDebug()<<ok;
 
     if (ok)
+        accept();
     else
     ui->labelError->setText("Une erreur est survenue !");
-
-
-
 }
-*/
+
+

@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogconnexion.h"
 #include "jonathan.cpp"
-//#include "remi.cpp"
+#include "remi.cpp"
 #include "nolann.cpp"
 #include "ugo.cpp"
 //#include "theo.cpp"

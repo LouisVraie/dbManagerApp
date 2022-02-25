@@ -30,7 +30,8 @@ SOURCES += \
         mainwindow.cpp \
     nolann.cpp \
     ugo.cpp \
-    jonathan.cpp
+    jonathan.cpp \
+    remi.cpp
 
 HEADERS += \
         dialogconnexion.h \
