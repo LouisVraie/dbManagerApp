@@ -18,7 +18,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QListWidget" name="listWidget_ListeTable"/>
+       <widget class="QListWidget" name="listWidget_Table"/>
       </item>
       <item>
        <widget class="QTabWidget" name="tabWidget">
