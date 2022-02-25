@@ -26,4 +26,5 @@ void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)
 {
     this->currentTable=ui->listWidget_Table->currentItem()->text();//Met à jour la variable
     qDebug()<<currentTable;
+    afficherTableUtilisateur();
 }
