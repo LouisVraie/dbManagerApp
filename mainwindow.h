@@ -19,6 +19,10 @@ public:
     //ugo.cpp
     void afficherListeTable();
 
+    //remi.cpp
+    bool quitConfirm();
+    void closeEvent(QCloseEvent *event);
+
 private slots:
     //nolann.cpp
     void afficherTableUtilisateur();

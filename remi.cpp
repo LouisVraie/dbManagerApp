@@ -1,12 +1,9 @@
 #include "mainwindow.h"
-
-/*
- a mettre dans le .h
 #include <QDebug>
 #include <QMessageBox>
 #include <QCloseEvent>
-
-
+/*
+ a mettre dans le .h
   public:
   bool quitConfirm();
   void closeEvent(QCloseEvent *event);
