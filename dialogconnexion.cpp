@@ -45,10 +45,8 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
           qDebug()<<ok;
 
     if (ok)
+        accept();
     else
     ui->labelError->setText("Une erreur est survenue !");
-
-
-
 }
-*/
+
