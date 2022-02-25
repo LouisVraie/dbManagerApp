@@ -1,8 +1,13 @@
 //ajouter en public dans le maiwindow.h
 //void AfficherTable();
 //void on_listWidget_Table_itemClicked(QListWidgetItem *item);
-//QString currentTable
+//QString currentTable 
 
+#include "mainwindow.h"
+#include <QMainWindow>	
+#include <QListWidget>
+#include <QSqlQuery>
+#include <QDebug>
 
 void MainWindow::AfficherTable()//Méthode pour afficher les tables de la base
 {
