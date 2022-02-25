@@ -5,15 +5,19 @@
 
 int main(int argc, char *argv[])
 {
+    QApplication a(argc, argv);
+    DialogConnexion connexion;
+
+    connexion.exec();
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-          db.setHostName("acidalia");
-          db.setDatabaseName("customdb");
-          db.setUserName("mojito");
-          db.setPassword("J0a1m8");
+          db.setHostName(connexion.getDatabaseIP());
+          db.setDatabaseName(connexion.getDatabaseName());
+          db.setUserName(connexion.getUsername());
+          db.setPassword(connexion.getPassword());
           bool ok = db.open();
 
-    QApplication a(argc, argv);
-    DialogConnexion w;
+    MainWindow w;
     w.show();
 
     return a.exec();
