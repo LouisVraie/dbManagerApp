@@ -22,7 +22,6 @@ void DialogConnexion::on_pushButtonDialogDelete_clicked()
     ui->lineEditDialogPassword->setText("");
     ui->lineEditDialogDatabaseName->setText("");
     ui->lineEditDatabaseIP->setText("");
-
 }
 
 void DialogConnexion::on_pushButtonDialogConnection_clicked()
@@ -46,31 +45,10 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
           qDebug()<<ok;
 
     if (ok)
-    accept();
-
     else
     ui->labelError->setText("Une erreur est survenue !");
 
 
-}
 
-/*QString DialogConnexion::getUsername()
-{
-    return username;
-}
-
-QString DialogConnexion::getPassword()
-{
-    return password;
-}
-
-QString DialogConnexion::getDatabaseName()
-{
-    return databaseName;
-}
-
-QString DialogConnexion::getDatabaseIP()
-{
-    return databaseIP;
 }
 */
