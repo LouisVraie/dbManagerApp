@@ -4,7 +4,7 @@
 #include "jonathan.cpp"
 //#include "remi.cpp"
 #include "nolann.cpp"
-//#include "ugo.cpp"
+#include "ugo.cpp"
 //#include "theo.cpp"
 
 /**
@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //setWindowTitle("dbManagerApp - "+databaseName+" - "+databaseIp+" - "+databaseUser);
-
+    afficherListeTable();
 }
 
 /**

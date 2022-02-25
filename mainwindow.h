@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +17,7 @@ public:
     ~MainWindow();
 
     //ugo.cpp
-    void AfficherTable();
+    void afficherListeTable();
 
 private slots:
     //nolann.cpp

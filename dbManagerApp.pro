@@ -28,7 +28,9 @@ SOURCES += \
         dialogconnexion.cpp \
         main.cpp \
         mainwindow.cpp \
-    nolann.cpp
+    nolann.cpp \
+    ugo.cpp \
+    jonathan.cpp
 
 HEADERS += \
         dialogconnexion.h \

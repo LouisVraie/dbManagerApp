@@ -9,7 +9,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 
-void MainWindow::AfficherTable()//Méthode pour afficher les tables de la base
+void MainWindow::afficherListeTable()//Méthode pour afficher les tables de la base
 {
 
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
@@ -18,12 +18,12 @@ void MainWindow::AfficherTable()//Méthode pour afficher les tables de la base
 
     while (reqAfficheTable.next()) {//Tant qu'on peut passer au prochain
         QString nomTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
-        ui->listWidget_Table->addItem(nomTable);//Et on l'affiche
+        ui->listWidget_ListeTable->addItem(nomTable);//Et on l'affiche
     }
 }
 
 void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)
 {
-    this->currentTable=ui->listWidget_Table->currentItem()->text();//Met à jour la variable
+    this->currentTable=ui->listWidget_ListeTable->currentItem()->text();//Met à jour la variable
     qDebug()<<currentTable;
 }
