@@ -27,7 +27,8 @@ CONFIG += c++11
 SOURCES += \
         dialogconnexion.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    nolann.cpp
 
 HEADERS += \
         dialogconnexion.h \
