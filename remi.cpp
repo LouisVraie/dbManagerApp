@@ -16,7 +16,7 @@
  */
 bool MainWindow::quitConfirm()
 {
-    if(QMessageBox::warning(this,this->windowTitle(),"voulez-vous vraiment quitter cette fenetre ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment quitter cette fenêtre ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
     {
         return true;
     }
