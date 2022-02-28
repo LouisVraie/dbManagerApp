@@ -73,7 +73,7 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
     if (ok)
         accept();
     else
-    ui->labelError->setText("Une erreur est survenue !");
+    ui->labelError->setText("An error has occurred !");
 }
 
 
