@@ -2,7 +2,13 @@
 
 #include <QSqlQuery>
 #include <QDebug>
-void pushButton_Executer(){
+/**
+ * @brief MainWindow::pushButton_Executer
+ * Fonction de récupération de la requete utilisateur
+ * depuis le plainTextEdit_RequeteSQL.
+ * Puis Execute la commande dans la base de donnée.
+ */
+void MainWindow::pushButton_Executer(){
     //Déclaration d'une variable de récupération de la requete SQL
     QString requeteSQL;
     requeteSQL=ui->plainTextEdit_RequeteSQL->toPlainText();

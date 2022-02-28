@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     DialogConnexion connexion;
 
     if(connexion.exec()==QDialog::Accepted) {
+        connexion.getUsername();
         MainWindow w;
         w.show();
         return a.exec();

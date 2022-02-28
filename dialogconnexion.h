@@ -23,6 +23,10 @@ public:
 
     QString getDatabaseIP();
 
+    //ugo.cpp
+    bool quitConfirmConnexion();
+    void closeEvent(QCloseEvent *event);
+
 private slots:
     void on_pushButtonDialogDelete_clicked();
 

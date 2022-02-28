@@ -1,5 +1,7 @@
 #include "dialoginsertionremi.h"
 #include "ui_dialoginsertionremi.h"
+#include <QLabel>
+#include <QLineEdit>
 
 DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     QDialog(parent),
