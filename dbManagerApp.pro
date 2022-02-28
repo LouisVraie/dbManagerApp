@@ -32,7 +32,8 @@ SOURCES += \
     ugo.cpp \
     jonathan.cpp \
     remi.cpp \
-    dialoginsertionremi.cpp
+    dialoginsertionremi.cpp \
+    theo.cpp
 
 HEADERS += \
         dialogconnexion.h \

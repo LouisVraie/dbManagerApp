@@ -30,6 +30,11 @@ private slots:
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
 
+    //theo.cpp
+    void pushButton_Executer();
+
+    void on_pushButton_Ajouter_clicked();
+
 private:
     Ui::MainWindow *ui;
     //nolann.cpp

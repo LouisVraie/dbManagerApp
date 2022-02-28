@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialogconnexion.h"
+#include "dialoginsertionremi.h"
 #include "jonathan.cpp"
 #include "remi.cpp"
 #include "nolann.cpp"
 #include "ugo.cpp"
-//#include "theo.cpp"
+#include "theo.cpp"
 
 /**
  * @brief MainWindow::MainWindow
@@ -30,4 +31,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+void MainWindow::on_pushButton_Ajouter_clicked()
+{
+    DialogInsertionRemi insertion;
+    insertion.exec();
+}
