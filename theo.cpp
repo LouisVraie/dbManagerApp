@@ -1,10 +1,11 @@
 #include "mainwindow.h"
-#include "QSqlQuery"
-#include "QDebug"
+
+#include <QSqlQuery>
+#include <QDebug>
 void pushButton_Executer(){
     //Déclaration d'une variable de récupération de la requete SQL
     QString requeteSQL;
-    requeteSQL=ui->plainTextEdit->toPlainText();
+    requeteSQL=ui->plainTextEdit_RequeteSQL->toPlainText();
     //Execute la commande sur la base de donnée
     QSqlQuery query_resultat(requeteSQL);
     while(query_resultat.next())
@@ -23,7 +24,7 @@ void pushButton_Executer(){
                     resultatDef=resultatDef+" "+query_resultat.value(compteurNbrColonne).toString();
 
                 }
-                ui->textBrowser->setText(resultatDef);
+                ui->textBrowser_ResultatRequete->setText(resultatDef);
             }
 
 
