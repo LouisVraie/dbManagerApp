@@ -8,10 +8,6 @@ DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     ui(new Ui::DialogInsertionRemi)
 {
     ui->setupUi(this);
-    for(int cpt=0;cpt<5;cpt++)
-    {
-        ui->
-    }
 }
 
 DialogInsertionRemi::~DialogInsertionRemi()
