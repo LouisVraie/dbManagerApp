@@ -31,15 +31,18 @@ SOURCES += \
     nolann.cpp \
     ugo.cpp \
     jonathan.cpp \
-    remi.cpp
+    remi.cpp \
+    dialoginsertionremi.cpp
 
 HEADERS += \
         dialogconnexion.h \
-        mainwindow.h
+        mainwindow.h \
+    dialoginsertionremi.h
 
 FORMS += \
         dialogconnexion.ui \
-        mainwindow.ui
+        mainwindow.ui \
+    dialoginsertionremi.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
