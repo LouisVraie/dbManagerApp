@@ -233,7 +233,10 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Quiter">
    <property name="text">
-    <string>&amp;Quite</string>
+    <string>&amp;Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
    </property>
   </action>
   <action name="action_D_connexion">
