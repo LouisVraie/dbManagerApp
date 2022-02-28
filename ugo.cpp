@@ -89,3 +89,34 @@ void DialogConnexion::closeEvent(QCloseEvent *event)
         event->ignore();//Ignore la demande
     }
 }
+
+
+
+
+/**********COMBO BOX************/
+
+#include <QComboBox>
+
+/* A ajouter en public dans mainwindow.h
+ * void remplirComboBox();
+ *
+ * A ajouter dans le constructeur de la mainwindow.cpp
+ * remplirComboBoc();
+
+
+
+/**
+ * @brief Affiche les base connecté à l'utilisateur
+ */
+void MainWindow::remplirComboBox()
+{
+    qDebug()<<"void MainWindow::remplirComboBox()";
+    ui->comboBox_Databases->clear();//Nétoie la comboBox
+
+    QString txtReqRemblirComboBox = "SHOW DATABASES";//Ecrit la requête qui affiche les bases
+    QSqlQuery reqRemplirComboBox(txtReqRemblirComboBox);//Conversion en sql
+    while(reqRemplirComboBox.next())//Tant que quelque chose est écrit
+    {
+        ui->comboBox_Databases->addItem(reqRemplirComboBox.value(0).toString());//Le rajoute dans la comboBox
+    }
+}
