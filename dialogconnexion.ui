@@ -309,8 +309,8 @@ color: rgb(255, 255, 255);</string>
             <string> Connection</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>:/images/images/logo_login_1.png</normaloff>:/images/images/logo_login_1.png</iconset>
+            <iconset resource="images.qrc">
+             <normaloff>:/images/images/logo_login.png</normaloff>:/images/images/logo_login.png</iconset>
            </property>
            <property name="iconSize">
             <size>
