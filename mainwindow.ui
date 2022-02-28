@@ -13,15 +13,43 @@
   <property name="windowTitle">
    <string>DB Manager</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(38, 51, 65);
+color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_4">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QComboBox" name="comboBox_Databases"/>
+       <widget class="QComboBox" name="comboBox_Databases">
+        <property name="font">
+         <font>
+          <family>Lato</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="listWidget_Table"/>
+       <widget class="QListWidget" name="listWidget_Table">
+        <property name="font">
+         <font>
+          <family>Lato</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -40,6 +68,15 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_AddTable">
+          <property name="font">
+           <font>
+            <family>Lato</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>Add Table</string>
           </property>
@@ -64,6 +101,15 @@
     </item>
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <family>Lato</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="currentIndex">
        <number>1</number>
       </property>
@@ -96,6 +142,15 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Ajouter">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Add</string>
             </property>
@@ -116,6 +171,15 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Sauvegarder">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Save</string>
             </property>
@@ -136,6 +200,15 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Supprimer">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Dell</string>
             </property>
@@ -164,7 +237,17 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL"/>
+         <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL">
+          <property name="font">
+           <font>
+            <family>Source Code Pro</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -183,6 +266,15 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_Executer">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Execute</string>
             </property>
@@ -191,7 +283,17 @@
          </layout>
         </item>
         <item>
-         <widget class="QTextBrowser" name="textBrowser_ResultatRequete"/>
+         <widget class="QTextBrowser" name="textBrowser_ResultatRequete">
+          <property name="font">
+           <font>
+            <family>Source Code Pro</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -246,6 +348,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
