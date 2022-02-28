@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>399</width>
-    <height>463</height>
+    <width>531</width>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>dbManagerApp - Connection</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(38, 51, 65);
@@ -367,6 +371,39 @@ color: rgb(255, 255, 255);</string>
          </item>
          <item>
           <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonClose">
+           <property name="font">
+            <font>
+             <family>Lato</family>
+             <pointsize>14</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string> Close</string>
+           </property>
+           <property name="icon">
+            <iconset resource="images.qrc">
+             <normaloff>:/images/images/logo_close.png</normaloff>:/images/images/logo_close.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_8">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>

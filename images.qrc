@@ -4,5 +4,6 @@
         <file>images/logo_delete_button_earaser.png</file>
         <file>images/logo_app_1.png</file>
         <file>images/logo_login.png</file>
+        <file>images/logo_close.png</file>
     </qresource>
 </RCC>

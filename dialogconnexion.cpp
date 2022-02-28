@@ -77,3 +77,9 @@ void DialogConnexion::on_pushButtonDialogConnection_clicked()
 }
 
 
+
+void DialogConnexion::on_pushButtonClose_clicked()
+{
+    close();
+}
+

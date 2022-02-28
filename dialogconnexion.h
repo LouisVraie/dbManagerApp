@@ -33,6 +33,8 @@ private slots:
     void on_pushButtonDialogConnection_clicked();
 
 
+    void on_pushButtonClose_clicked();
+
 private:
     Ui::DialogConnexion *ui;
 
