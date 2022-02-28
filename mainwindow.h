@@ -35,9 +35,12 @@ private slots:
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
 
     //theo.cpp
-    void pushButton_Executer();
+    void on_pushButton_Executer_clicked();
 
     void on_pushButton_Ajouter_clicked();
+
+    //jonathan.cpp
+    void on_action_Quiter_triggered();
 
 private:
     Ui::MainWindow *ui;

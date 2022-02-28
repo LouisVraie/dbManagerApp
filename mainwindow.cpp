@@ -44,7 +44,7 @@ bool MainWindow::connection()
         database = connexion.getDatabaseName();
         databaseIp = connexion.getDatabaseIP();
 
-        //setWindowTitle("dbManagerApp - "+databaseName+" - "+databaseIp+" - "+databaseUser);
+        setWindowTitle("dbManagerApp - "+database+" - "+username+"@"+databaseIp);
 
         remplirComboBox();
         afficherListeTable();
