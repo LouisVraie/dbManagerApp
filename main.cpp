@@ -7,12 +7,13 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    DialogConnexion connexion;
+    MainWindow w;
+    w.hide();
 
-    if(connexion.exec()==QDialog::Accepted) {
-        connexion.getUsername();
-        MainWindow w;
+    //si la connexion est faite
+    if(w.connection()){
         w.show();
-        return a.exec();
     }
+
+    return a.exec();
 }

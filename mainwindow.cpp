@@ -1,12 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dialogconnexion.h"
 #include "dialoginsertionremi.h"
 #include "jonathan.cpp"
 #include "remi.cpp"
 #include "nolann.cpp"
 #include "ugo.cpp"
 #include "theo.cpp"
+#include "louis.cpp"
 
 /**
  * @brief MainWindow::MainWindow

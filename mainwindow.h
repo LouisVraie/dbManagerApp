@@ -23,6 +23,9 @@ public:
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
 
+    //louis.cpp
+    bool connection();
+
 private slots:
     //nolann.cpp
     void afficherTableUtilisateur();
@@ -43,6 +46,9 @@ private:
 
     //ugo.cpp
     QString currentTable;
+
+    //louis.cpp
+    QString username, password, database, databaseIp;
 };
 
 #endif // MAINWINDOW_H
