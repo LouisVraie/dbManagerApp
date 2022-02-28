@@ -33,6 +33,8 @@ private slots:
     //theo.cpp
     void pushButton_Executer();
 
+    void on_pushButton_Ajouter_clicked();
+
 private:
     Ui::MainWindow *ui;
     //nolann.cpp
