@@ -48,6 +48,9 @@ void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)//Méthod
 
 /**********AVERTISSEMENT FERMETURE DIALOG************/
 
+#include <QCloseEvent>
+#include <QMessageBox>
+
 
 /* A insérer dans le dialogconnexion.h
 public :
@@ -59,7 +62,7 @@ public :
  * @brief Permet d'avertir l'utilisateur pour quitter la boite de dialogue
  * @return Renvoie un booléen vrai ou faux
  */
-bool DialogConnexion::quitConfirm()
+bool DialogConnexion::quitConfirmConnexion()
 {
     if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous quitter la page de connexion ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)//Si l'utilisateur clique sur "oui"
     {
@@ -78,7 +81,7 @@ bool DialogConnexion::quitConfirm()
  */
 void DialogConnexion::closeEvent(QCloseEvent *event)
 {
-    if(quitConfirm())//Si le bouléen est vrai
+    if(quitConfirmConnexion())//Si le bouléen est vrai
     {
         event->accept();//Fermeture de l'application
     }
