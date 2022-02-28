@@ -18,6 +18,7 @@ public:
 
     //ugo.cpp
     void afficherListeTable();
+    void remplirComboBox();
 
     //remi.cpp
     bool quitConfirm();

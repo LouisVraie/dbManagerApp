@@ -98,11 +98,10 @@ void DialogConnexion::closeEvent(QCloseEvent *event)
 #include <QComboBox>
 
 /* A ajouter en public dans mainwindow.h
- * void remplirComboBox();
- *
- * A ajouter dans le constructeur de la mainwindow.cpp
- * remplirComboBoc();
-
+void remplirComboBox();
+A ajouter dans le constructeur de la mainwindow.cpp
+remplirComboBox();
+ */
 
 
 /**

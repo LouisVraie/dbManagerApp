@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     //si la connexion est faite
     if(w.connection()){
         w.show();
+
     }
 
     return a.exec();

@@ -18,8 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //setWindowTitle("dbManagerApp - "+databaseName+" - "+databaseIp+" - "+databaseUser);
-    afficherListeTable();
 }
 
 /**
@@ -29,4 +27,29 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+/**
+ * @brief MainWindow::connection
+ * @return bool
+ */
+bool MainWindow::connection()
+{
+    DialogConnexion connexion;
+
+    if(connexion.exec()==QDialog::Accepted) {
+        //récupération des informations de connexion
+        username = connexion.getUsername();
+        password = connexion.getPassword();
+        database = connexion.getDatabaseName();
+        databaseIp = connexion.getDatabaseIP();
+
+        //setWindowTitle("dbManagerApp - "+databaseName+" - "+databaseIp+" - "+databaseUser);
+
+        remplirComboBox();
+        afficherListeTable();
+        return true;
+    } else {
+        return false;
+    }
 }
