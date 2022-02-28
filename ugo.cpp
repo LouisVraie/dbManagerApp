@@ -111,6 +111,8 @@ void MainWindow::remplirComboBox()
 {
     qDebug()<<"void MainWindow::remplirComboBox()";
     ui->comboBox_Databases->clear();//Nétoie la comboBox
+    qDebug()<<database;
+
 
     QString txtReqRemblirComboBox = "SHOW DATABASES";//Ecrit la requête qui affiche les bases
     QSqlQuery reqRemplirComboBox(txtReqRemblirComboBox);//Conversion en sql
@@ -118,4 +120,5 @@ void MainWindow::remplirComboBox()
     {
         ui->comboBox_Databases->addItem(reqRemplirComboBox.value(0).toString());//Le rajoute dans la comboBox
     }
+    ui->comboBox_Databases->setCurrentText(database);
 }
