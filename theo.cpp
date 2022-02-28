@@ -23,29 +23,19 @@ void MainWindow::pushButton_Executer(){
     QString sDate = QDateTime::currentDateTime().toString("[dd/MM/yyyy hh:mm:ss]");
     while(query_resultat.next())
     {
-
             int compteurNbrColonne;
             int compteurNbrColonneMax;
             QString nomColonne="select count(COLUMN_NAME) from INFORMATION_SCHEMA.COLUMNS where table_name='livre';";
             QSqlQuery query_resultat2(nomColonne);
             QString resultatDef;
-
             while(query_resultat2.next())
                 compteurNbrColonneMax=query_resultat2.value(0).toInt();
                 qDebug()<<compteurNbrColonneMax;
                 for (compteurNbrColonne=0;compteurNbrColonne<compteurNbrColonneMax;compteurNbrColonne++) {
                     qDebug()<<"resultatDef"<<resultatDef;
                     resultatDef=resultatDef+" "+query_resultat.value(compteurNbrColonne).toString();
-
-
                 }
-
-            ui->textBrowser->setText(ui->textBrowser_ResultatRequete->toPlainText()+"\r\n"+sDate+" "+resultatDef+"\r\n"+"Successful request");
-
-
-
+            ui->textBrowser_ResultatRequete->setText(ui->textBrowser_ResultatRequete->toPlainText()+"\r\n"+sDate+" "+resultatDef+"\r\n"+"Successful request");
              }
-    ui->textBrowser->setText(ui->textBrowser_ResultatRequete->toPlainText()+"\r\n"+sDate+" "+resultatError);
-
-
+    ui->textBrowser_ResultatRequete->setText(ui->textBrowser_ResultatRequete->toPlainText()+"\r\n"+sDate+" "+resultatError);
 }
