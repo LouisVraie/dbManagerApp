@@ -10,10 +10,7 @@ DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     ui->setupUi(this);
     for(int cpt=0;cpt<5;cpt++)
     {
-      QLabel * nouveauLabel=new QLabel(this);
-      nouveauLabel->setText("ploum"+QString::number(cpt));
-      QLineEdit * nouvelleZoneDeSaisie= new QLineEdit(this);
-      ui->formLayout->addRow(nouveauLabel, nouvelleZoneDeSaisie);
+        ui->
     }
 }
 

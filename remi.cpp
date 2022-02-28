@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include "dialoginsertionremi.h"
 /*
  a mettre dans le .h
   public:
@@ -38,4 +39,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
     else {
         event->ignore();
     }
+}
+
+void MainWindow::on_pushButton_Ajouter_clicked()
+{
+    DialogInsertionRemi insertion;
+    insertion.exec();
 }
