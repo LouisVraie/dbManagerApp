@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
-    <height>561</height>
+    <width>835</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
 color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -111,7 +111,7 @@ color: rgb(255, 255, 255);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_TableUtilisateur">
        <attribute name="title">
@@ -237,6 +237,22 @@ color: rgb(255, 255, 255);</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Lato</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Personnal Request :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL">
           <property name="font">
            <font>
@@ -246,6 +262,9 @@ color: rgb(255, 255, 255);</string>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="placeholderText">
+           <string>Enter your request here. </string>
           </property>
          </widget>
         </item>
@@ -280,7 +299,39 @@ color: rgb(255, 255, 255);</string>
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonClearRequest">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Lato</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Request Result :</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QTextBrowser" name="textBrowser_ResultatRequete">
@@ -293,7 +344,43 @@ color: rgb(255, 255, 255);</string>
             <bold>false</bold>
            </font>
           </property>
+          <property name="placeholderText">
+           <string>The result of your request will be displayed here. </string>
+          </property>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>435</width>
+              <height>17</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonClearResult">
+            <property name="font">
+             <font>
+              <family>Lato</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -306,7 +393,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>742</width>
+     <width>835</width>
      <height>24</height>
     </rect>
    </property>
