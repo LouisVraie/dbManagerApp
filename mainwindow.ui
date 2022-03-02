@@ -26,6 +26,22 @@ color: rgb(255, 255, 255);</string>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Lato</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Selected database :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QComboBox" name="comboBox_Databases">
         <property name="font">
          <font>
@@ -35,6 +51,22 @@ color: rgb(255, 255, 255);</string>
           <italic>true</italic>
           <bold>true</bold>
          </font>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Lato</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Table list :</string>
         </property>
        </widget>
       </item>
