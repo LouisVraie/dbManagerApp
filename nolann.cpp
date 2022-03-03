@@ -40,3 +40,77 @@ void MainWindow::afficherTableUtilisateur()
         }
     }
 }
+
+void MainWindow::on_pushButton_Supprimer_clicked()
+{
+    nomColonne = ui->tableWidget_Table->horizontalHeaderItem(1)->text();
+    qDebug()<<nomColonne;
+    int nbChecked = 0;
+    int ligne = ui->tableWidget_Table->rowCount()-1;
+    QList<QString> listeSupprimer;
+    for (int noLigne = ligne;noLigne >= 0;noLigne--)
+    {
+        if(((QCheckBox*)(ui->tableWidget_Table->cellWidget(noLigne,0)))->isChecked())
+        {
+            nbChecked++;
+            listeSupprimer.append(ui->tableWidget_Table->item(noLigne,1)->text());
+        }
+    }
+
+
+
+    if(nbChecked>0)
+    {
+        if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment supprimer ces "+QString::number(nbChecked)+" lignes ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)//Si l'utilisateur clique sur "oui"
+        {
+            //suppression
+            for(int i=listeSupprimer.length()-1;i>=0;i--)
+            {
+                qDebug()<<listeSupprimer.at(i);
+                req = "DELETE FROM "+nomTable+" WHERE "+nomColonne+"="+listeSupprimer.at(i);
+                qDebug()<<req;
+                 QSqlQuery query(req);
+                query.next();
+                listeSupprimer.removeLast();
+            }
+        }
+        afficherTableUtilisateur();
+        nbChecked = 0;
+    }
+    else
+    {
+        ui->statusBar->setStyleSheet("color:rgb(252, 62, 62)");
+        ui->statusBar->showMessage("Aucune case cochée !",3000);
+    }
+
+}
+
+
+
+/*int ligne = ui->tableWidgetLivres->rowCount()-1;
+    int nbChecked = 0;
+    for (int noLigne = ligne;noLigne >= 0;noLigne--)
+    {
+        qDebug()<<"for (int noLigne = 0;noLigne <= ligne;noLigne++)";
+        if(((QCheckBox*)(ui->tableWidgetLivres->cellWidget(noLigne,7)))->isChecked())
+        {
+            qDebug()<<"if(((QCheckBox*)(ui->tableWidgetLivres->cellWidget(noLigne,6)))->isChecked())";
+            nbChecked++;
+            titre = ui->tableWidgetLivres->item(noLigne,1)->text();
+
+            if (QMessageBox::warning(this,"Livres - Suppression",titre+" - Êtes-vous sûr.e de vouloir supprimer ce livre ?",
+                                     QMessageBox::Yes|QMessageBox::No,QMessageBox::No)==QMessageBox::Yes)
+            {
+                req = "UPDATE Livres SET valide = FALSE WHERE numeroLivres = "+ui->tableWidgetLivres->item(noLigne,0)->text();
+                //qDebug()<<req;
+                QSqlQuery supprimer(req);
+            }
+        }
+    }
+    if(nbChecked == 0)
+    {
+        ui->statusBar->setStyleSheet("color:rgb(252, 62, 62)");
+        ui->statusBar->showMessage("Aucune case cochée !",3000);
+
+    }
+*/
