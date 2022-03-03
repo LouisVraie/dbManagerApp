@@ -20,14 +20,23 @@
  */
 void MainWindow::afficherListeTable()
 {
-
+    ui->listWidget_Table->clear();//On clear la liste
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
     QSqlQuery reqAfficheTable(txtAfficheTable);//Convertit la requête en Sql
     qDebug()<<txtAfficheTable;
 
-    while (reqAfficheTable.next()) {//Tant qu'on peut passer au prochain
-        QString nomTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
-        ui->listWidget_Table->addItem(nomTable);//Et on l'affiche
+    if (reqAfficheTable.lastError().text() == " ")
+    {
+        while (reqAfficheTable.next()) {//Tant qu'on peut passer au prochain
+            QString nomTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
+            ui->listWidget_Table->addItem(nomTable);//Et on l'affiche
+        }
+
+        ui->listWidget_Table->setCurrentRow(0);
+        currentTable=ui->listWidget_Table->currentItem()->text();
+        afficherTableUtilisateur();
+    } else {
+        ui->textBrowserActionResult->setText(tr("The database ")+database+tr(" doesn't contain any table !"));
     }
 }
 
@@ -145,5 +154,14 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
           qDebug()<<ok;
 
     ui->listWidget_Table->clear();//On clear la liste
+    ui->tableWidget_Table->clear();//On clear le contenu des tables
+
+    int nbCol = ui->tableWidget_Table->columnCount();
+    for (int i = nbCol; i >= 0 ; i-- )
+    {
+        qDebug()<<i;
+        ui->tableWidget_Table->removeColumn(i);
+    }
+
     afficherListeTable();//On réaffiche les tables
 }
