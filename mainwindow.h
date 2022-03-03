@@ -44,6 +44,8 @@ private slots:
     //remi.cpp
     void on_pushButton_Ajouter_clicked();
 
+    void on_action_Disconnect_triggered();
+
 private:
     Ui::MainWindow *ui;
     //nolann.cpp
