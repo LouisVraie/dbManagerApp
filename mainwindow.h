@@ -30,6 +30,7 @@ public:
 private slots:
     //nolann.cpp
     void afficherTableUtilisateur();
+    void on_pushButton_Supprimer_clicked();
 
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
@@ -43,6 +44,8 @@ private slots:
 
     //remi.cpp
     void on_pushButton_Ajouter_clicked();
+
+    void on_action_Disconnect_triggered();
 
 private:
     Ui::MainWindow *ui;

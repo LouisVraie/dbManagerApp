@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>719</height>
+    <width>823</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,13 +31,13 @@ color: rgb(255, 255, 255);</string>
       <widget class="QWidget" name="">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="labelSelectedDatabase">
           <property name="font">
            <font>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>true</italic>
+            <italic>false</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -48,25 +48,43 @@ color: rgb(255, 255, 255);</string>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_Databases">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>true</italic>
+            <italic>false</italic>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="currentIndex">
+           <number>-1</number>
+          </property>
+          <property name="maxVisibleItems">
+           <number>10</number>
+          </property>
+          <property name="modelColumn">
+           <number>0</number>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="labelTableList">
           <property name="font">
            <font>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>true</italic>
+            <italic>false</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -94,7 +112,7 @@ color: rgb(255, 255, 255);</string>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>true</italic>
+            <italic>false</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -125,6 +143,9 @@ color: rgb(255, 255, 255);</string>
               <italic>true</italic>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Add Table</string>
@@ -173,10 +194,74 @@ color: rgb(255, 255, 255);</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QTableWidget" name="tableWidget_Table">
-           <attribute name="verticalHeaderVisible">
-            <bool>false</bool>
-           </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLineEdit" name="lineEditFilter">
+             <property name="font">
+              <font>
+               <family>Source Code Pro</family>
+               <pointsize>11</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Table Filter</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonFilter">
+             <property name="font">
+              <font>
+               <family>Lato</family>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <italic>true</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Filter</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QSplitter" name="splitter_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QTableWidget" name="tableWidget_Table">
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+           </widget>
+           <widget class="QTextBrowser" name="textBrowserActionResult">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Source Code Pro</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursorWidth">
+             <number>1</number>
+            </property>
+            <property name="placeholderText">
+             <string>The status of your action will be displayed here.</string>
+            </property>
+           </widget>
           </widget>
          </item>
          <item>
@@ -206,7 +291,7 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="text">
-              <string> Add</string>
+              <string> Insert Row</string>
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
@@ -245,7 +330,17 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="text">
-              <string>Save</string>
+              <string>  Save</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/images/images/logo_save.png</normaloff>:/images/images/logo_save.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -299,163 +394,181 @@ color: rgb(255, 255, 255);</string>
         <attribute name="title">
          <string>User Request</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="QLabel" name="label_2">
-           <property name="font">
-            <font>
-             <family>Lato</family>
-             <pointsize>12</pointsize>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
+          <widget class="QSplitter" name="splitter_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-           <property name="text">
-            <string>Personnal Request :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL">
-           <property name="font">
-            <font>
-             <family>Source Code Pro</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="placeholderText">
-            <string>Enter your request here.
+           <widget class="QWidget" name="">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QLabel" name="labelPersonnalRequest">
+               <property name="font">
+                <font>
+                 <family>Lato</family>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Personnal Request :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL">
+               <property name="font">
+                <font>
+                 <family>Source Code Pro</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="placeholderText">
+                <string>Enter your request here.
  </string>
-           </property>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <spacer name="horizontalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_Executer">
+                 <property name="font">
+                  <font>
+                   <family>Lato</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <italic>true</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Execute</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButtonClearRequest">
+                 <property name="font">
+                  <font>
+                   <family>Lato</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <italic>true</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Clear</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="labelRequestResult">
+               <property name="font">
+                <font>
+                 <family>Lato</family>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <italic>true</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Request Result :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextBrowser" name="textBrowserRequestResult">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Source Code Pro</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="placeholderText">
+                <string>The status of your request will be displayed here.</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tableWidgetRequestResult">
+               <attribute name="horizontalHeaderHighlightSections">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <spacer name="horizontalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>435</width>
+                   <height>17</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButtonClearResult">
+                 <property name="font">
+                  <font>
+                   <family>Lato</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <italic>true</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Clear</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
           </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_Executer">
-             <property name="font">
-              <font>
-               <family>Lato</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <italic>true</italic>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Execute</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonClearRequest">
-             <property name="font">
-              <font>
-               <family>Lato</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <italic>true</italic>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Clear</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <family>Lato</family>
-             <pointsize>12</pointsize>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Request Result :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTextBrowser" name="textBrowserRequestResult">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Source Code Pro</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="placeholderText">
-            <string>The status of your request will be displayed here.</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTableWidget" name="tableWidgetRequestResult">
-           <attribute name="horizontalHeaderHighlightSections">
-            <bool>false</bool>
-           </attribute>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <spacer name="horizontalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>435</width>
-               <height>17</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonClearResult">
-             <property name="font">
-              <font>
-               <family>Lato</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <italic>true</italic>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Clear</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </item>
         </layout>
        </widget>
@@ -469,7 +582,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>821</width>
+     <width>823</width>
      <height>24</height>
     </rect>
    </property>
@@ -503,11 +616,6 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="toolTip">
     <string>Quit</string>
-   </property>
-  </action>
-  <action name="action_D_connexion">
-   <property name="text">
-    <string>&amp;Déconnexion </string>
    </property>
   </action>
   <action name="action_Disconnect">
