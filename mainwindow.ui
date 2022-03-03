@@ -242,7 +242,7 @@ color: rgb(255, 255, 255);</string>
              </font>
             </property>
             <property name="text">
-             <string>Dell</string>
+             <string>Delete</string>
             </property>
            </widget>
           </item>
@@ -367,20 +367,17 @@ color: rgb(255, 255, 255);</string>
          </widget>
         </item>
         <item>
-         <widget class="QTextEdit" name="textEditRequestResult">
+         <widget class="QTextBrowser" name="textBrowserRequestResult">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>40</height>
+            <height>50</height>
            </size>
           </property>
           <property name="font">
            <font>
             <family>Source Code Pro</family>
             <pointsize>12</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
