@@ -143,7 +143,7 @@ color: rgb(255, 255, 255);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_TableUtilisateur">
        <attribute name="title">
@@ -296,7 +296,8 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="placeholderText">
-           <string>Enter your request here. </string>
+           <string>Enter your request here.
+ </string>
           </property>
          </widget>
         </item>
@@ -366,7 +367,13 @@ color: rgb(255, 255, 255);</string>
          </widget>
         </item>
         <item>
-         <widget class="QTextBrowser" name="textBrowser_ResultatRequete">
+         <widget class="QTextEdit" name="textEditRequestResult">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Source Code Pro</family>
@@ -377,9 +384,12 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="placeholderText">
-           <string>The result of your request will be displayed here. </string>
+           <string>The status of your request will be displayed here.</string>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidgetRequestResult"/>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
