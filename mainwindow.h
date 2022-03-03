@@ -33,6 +33,7 @@ private slots:
 
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
+    void on_comboBox_Databases_activated(const QString &);
 
     //theo.cpp
     void on_pushButton_Executer_clicked();
