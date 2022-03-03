@@ -35,7 +35,7 @@ void MainWindow::afficherTableUtilisateur()
         ui->tableWidget_Table->setCellWidget(nbLignes-1,0,new QCheckBox);
         for(int i=1;i<=nbColonnes;i++)
         {
-            resultat = query_resultat.value(i).toString();
+            resultat = query_resultat.value(i-1).toString();
             ui->tableWidget_Table->setItem(nbLignes-1,i,new QTableWidgetItem(resultat));
         }
     }
