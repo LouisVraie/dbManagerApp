@@ -73,9 +73,9 @@ void MainWindow::on_pushButton_Supprimer_clicked()
                 query.next();
                 listeSupprimer.removeLast();
             }
+            afficherTableUtilisateur();
+            nbChecked = 0;
         }
-        afficherTableUtilisateur();
-        nbChecked = 0;
     }
     else
     {
