@@ -38,10 +38,11 @@ private slots:
     //theo.cpp
     void on_pushButton_Executer_clicked();
 
-    void on_pushButton_Ajouter_clicked();
-
     //jonathan.cpp
     void on_action_Quiter_triggered();
+
+    //remi.cpp
+    void on_pushButton_Ajouter_clicked();
 
 private:
     Ui::MainWindow *ui;
