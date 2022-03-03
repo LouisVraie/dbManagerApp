@@ -4,7 +4,14 @@
 #include <QCloseEvent>
 #include "dialoginsertionremi.h"
 #include "ui_mainwindow.h"
+/*
+ * A mettre dans le .h
 
+bool quitConfirm();
+void closeEvent(QCloseEvent *event);
+void on_pushButton_Ajouter_clicked():
+
+ */
 
 /**
  * @brief Cette fonction sert a afficher un message de confirmation pour quitter
