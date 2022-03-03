@@ -21,8 +21,12 @@ public:
 
     //creation des colonnes
     void createColonne(QString nomColonne);
-    void createTableColonne(QString nomDeLaTable);   
+    void createTableColonne(QString nomDeLaTable);
     void getNomTableSelectionner(QString nomTableChoisi);
+
+    bool quitConfirm();
+    void closeEvent(QCloseEvent *event);
+
 
 
 
@@ -30,6 +34,8 @@ private slots:
     void on_pushButtonAddLigne_clicked();
 
     void on_pushButtonEnregistrer_clicked();
+
+    void on_pushButtonAnnuler_clicked();
 
 private:
     Ui::DialogInsertionRemi *ui;

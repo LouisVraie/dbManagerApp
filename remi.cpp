@@ -55,6 +55,10 @@ void MainWindow::on_pushButton_Ajouter_clicked()
 
     //on recupere le nom de la table du QListeWidget qui est selectionné
     insertion.getNomTableSelectionner(MainWindow::ui->listWidget_Table->currentItem()->text());
+
+    //on execute la fonction qui permet la creation des colonnes
+    insertion.createTableColonne(MainWindow::ui->listWidget_Table->currentItem()->text());
+
     qDebug()<<"nomTable = "<<nomTable;
     insertion.exec();
 }

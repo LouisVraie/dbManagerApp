@@ -4,13 +4,18 @@
 #include <QtSql/QSqlQuery>
 #include <QDebug>
 #include <QLineEdit>
+#include <QVector>
+#include <QCloseEvent>
+#include <QMessageBox>
 
 DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogInsertionRemi)
 {
     ui->setupUi(this);
-    createTableColonne(nomTableSelectionner);
+    ui->tableWidgetInsertion->horizontalHeader()->setStretchLastSection(true);
+    ui->tableWidgetInsertion->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    createNewLigne();
 }
 
 /**
@@ -20,6 +25,37 @@ DialogInsertionRemi::~DialogInsertionRemi()
 {
     delete ui;
 }
+
+bool DialogInsertionRemi::quitConfirm()
+{
+    qDebug()<<"MainWindow::quitConfirm()";
+    if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment quitter cette fenêtre ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/**
+ * @brief Cette fonction permet d'executer la fonction quitConfirm() quand l'utilisateur cherche a fermer la fenetre
+ * @param event
+ */
+void DialogInsertionRemi::closeEvent(QCloseEvent *event)
+{
+    qDebug()<<"MainWindow::closeEvent(QCloseEvent *event)";
+    if(quitConfirm())
+    {
+        event->accept();
+    }
+    else {
+        event->ignore();
+    }
+}
+
+
+
 
 /**
  * @brief insertion d'une nouvelle ligne dans le TableWidget
@@ -97,13 +133,64 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonEnregistrer_clicked";
 
+    //requete sql pour avoir les types de valeurs des champs
+    QString requeteTypeChamp = "DESC "+nomTableSelectionner;
+    qDebug()<<"requeteTypeChamp = "<<requeteTypeChamp;
+
+    QSqlQuery query(requeteTypeChamp);
+
+    //on créé le vector
+    QVector<QString> listeTypeChamps;
+
+    //tant qu'il existe une requete suivante
+    while (query.next())
+    {
+        //on push les types des champsdans un vector
+         listeTypeChamps.push_back( query.value(1).toString() );
+    }
+
     //pour chaque ligne du QTableWidget
     for (int nombreLigne = 0; nombreLigne < ui->tableWidgetInsertion->rowCount(); nombreLigne++)
     {
-        //pour chaque colonne
-            //on recupere l'informations de l'item corespondant
-            //on push tout dans un vecteur
+        //declaration de la requete d'insertion
+        QString requeteInsertion = "INSERT INTO " + nomTableSelectionner + " VALUES (";
 
-       //
+        //pour chaque colonne
+        for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
+        {
+            //on créé une variable string qui contient la valeur de l'item selectionné
+             QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
+
+             qDebug()<<"vector = "<<listeTypeChamps;
+            //si le champ est un varchar
+             if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
+            {
+                requeteInsertion += "'" + valeurItem + "', ";
+            }
+             else {
+                 requeteInsertion += valeurItem + ", ";
+             }
+        }
+        //on complete la requete pour qu'elle insere
+            //supprime les 2 derniers caracteres pour enlever ", "
+        requeteInsertion = requeteInsertion.remove(requeteInsertion.size()-2, 2);
+        requeteInsertion += ");";
+
+       //on execute la requete
+        QSqlQuery envoie(requeteInsertion);
+        qDebug()<<"requeteInsertion"<<requeteInsertion;
+    }
+}
+
+/**
+ * @brief Cette fonction permet de reinitialiser le tableWidget quand on clique sur annuler
+ */
+void DialogInsertionRemi::on_pushButtonAnnuler_clicked()
+{
+    qDebug()<<"DialogInsertionRemi::on_pushButtonAnnuler_clicked";
+
+    if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment Annuler ? Cela entrainera la réinitialisation de tous vos champs", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    {
+        ui->tableWidgetInsertion->setRowCount(0);
     }
 }
