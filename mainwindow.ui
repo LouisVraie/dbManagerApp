@@ -165,7 +165,7 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab_TableUtilisateur">
         <attribute name="title">
@@ -206,7 +206,17 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="text">
-              <string>Add</string>
+              <string> Add</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/images/images/logo_add.png</normaloff>:/images/images/logo_add.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -408,7 +418,11 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QTableWidget" name="tableWidgetRequestResult"/>
+          <widget class="QTableWidget" name="tableWidgetRequestResult">
+           <attribute name="horizontalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -463,6 +477,7 @@ color: rgb(255, 255, 255);</string>
     <property name="title">
      <string>&amp;Menu</string>
     </property>
+    <addaction name="action_Disconnect"/>
     <addaction name="action_Quiter"/>
    </widget>
    <widget class="QMenu" name="menu_Aide">
@@ -493,6 +508,11 @@ color: rgb(255, 255, 255);</string>
   <action name="action_D_connexion">
    <property name="text">
     <string>&amp;Déconnexion </string>
+   </property>
+  </action>
+  <action name="action_Disconnect">
+   <property name="text">
+    <string>&amp;Disconnect</string>
    </property>
   </action>
  </widget>
