@@ -61,7 +61,9 @@ void MainWindow::on_pushButton_Supprimer_clicked()
 
     if(nbChecked>0)
     {
-        if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment supprimer ces "+QString::number(nbChecked)+" lignes ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)//Si l'utilisateur clique sur "oui"
+        QString texteMessage = "Do you really want to delete these "+QString::number(nbChecked)+" rows ?";
+        if (nbChecked == 1) texteMessage = "Do you really want to delete this row ?";
+        if(QMessageBox::warning(this,this->windowTitle(),texteMessage, QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)//Si l'utilisateur clique sur "oui"
         {
             //suppression
             for(int i=listeSupprimer.length()-1;i>=0;i--)
@@ -79,8 +81,7 @@ void MainWindow::on_pushButton_Supprimer_clicked()
     }
     else
     {
-        ui->statusBar->setStyleSheet("color:rgb(252, 62, 62)");
-        ui->statusBar->showMessage("Aucune case cochée !",3000);
+        ui->textBrowserActionResult->setText("No rows selected !");
     }
 
 }
