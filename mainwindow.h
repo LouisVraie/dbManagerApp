@@ -30,6 +30,7 @@ public:
 private slots:
     //nolann.cpp
     void afficherTableUtilisateur();
+    void on_pushButton_Supprimer_clicked();
 
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
