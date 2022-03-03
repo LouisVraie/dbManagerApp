@@ -3,13 +3,8 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include "dialoginsertionremi.h"
-/*
- a mettre dans le .h
-  public:
-  bool quitConfirm();
-  void closeEvent(QCloseEvent *event);
+#include "ui_mainwindow.h"
 
-*/
 
 /**
  * @brief Cette fonction sert a afficher un message de confirmation pour quitter
@@ -17,6 +12,7 @@
  */
 bool MainWindow::quitConfirm()
 {
+    qDebug()<<"MainWindow::quitConfirm()";
     if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment quitter cette fenêtre ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
     {
         return true;
@@ -32,6 +28,7 @@ bool MainWindow::quitConfirm()
  */
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    qDebug()<<"MainWindow::closeEvent(QCloseEvent *event)";
     if(quitConfirm())
     {
         event->accept();
@@ -41,8 +38,16 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+/**
+ * @brief Cette fonction permet de creer une fenetre de dialogue contenant l'interface d'ajout, et de recuperer le nom de la table où on a demaré la fenetre
+ */
 void MainWindow::on_pushButton_Ajouter_clicked()
 {
+    qDebug()<<"MainWindow::on_pushButton_Ajouter_clicked";
     DialogInsertionRemi insertion;
+
+    //on recupere le nom de la table du QListeWidget qui est selectionné
+    insertion.getNomTableSelectionner(MainWindow::ui->listWidget_Table->currentItem()->text());
+    qDebug()<<"nomTable = "<<nomTable;
     insertion.exec();
 }
