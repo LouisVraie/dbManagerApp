@@ -15,7 +15,6 @@
 
 
 
-
 /**
  * @brief Affiche les tables de la base
  */
@@ -121,4 +120,30 @@ void MainWindow::remplirComboBox()
         ui->comboBox_Databases->addItem(reqRemplirComboBox.value(0).toString());//Le rajoute dans la comboBox
     }
     ui->comboBox_Databases->setCurrentText(database);
+}
+
+
+
+/****CHANGER DE BASE COMBO BOX****/
+
+/**
+ * @brief Change de base lorsque l'utilisateur clique sur la combobox
+ */
+
+void MainWindow::on_comboBox_Databases_activated(const QString &)
+{
+    database=ui->comboBox_Databases->currentText();//On change le nom de la base
+    qDebug()<<database;
+
+    //On se connecte a la base séléctionné
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+          db.setHostName(databaseIp);
+          db.setDatabaseName(database);
+          db.setUserName(username);
+          db.setPassword(password);
+          bool ok = db.open();
+          qDebug()<<ok;
+
+    ui->listWidget_Table->clear();//On clear la liste
+    afficherListeTable();//On réaffiche les tables
 }
