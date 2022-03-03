@@ -6,5 +6,6 @@
         <file>images/logo_login.png</file>
         <file>images/logo_close.png</file>
         <file>images/logo_add.png</file>
+        <file>images/logo_save.png</file>
     </qresource>
 </RCC>

@@ -125,7 +125,7 @@ color: rgb(255, 255, 255);</string>
           <font>
            <family>Lato</family>
            <pointsize>14</pointsize>
-           <italic>true</italic>
+           <italic>false</italic>
           </font>
          </property>
         </widget>
@@ -150,7 +150,7 @@ color: rgb(255, 255, 255);</string>
           <font>
            <family>Lato</family>
            <pointsize>14</pointsize>
-           <italic>true</italic>
+           <italic>false</italic>
           </font>
          </property>
          <property name="echoMode">
@@ -178,7 +178,7 @@ color: rgb(255, 255, 255);</string>
           <font>
            <family>Lato</family>
            <pointsize>14</pointsize>
-           <italic>true</italic>
+           <italic>false</italic>
           </font>
          </property>
          <property name="toolTip">
@@ -206,7 +206,7 @@ color: rgb(255, 255, 255);</string>
           <font>
            <family>Lato</family>
            <pointsize>14</pointsize>
-           <italic>true</italic>
+           <italic>false</italic>
           </font>
          </property>
         </widget>
