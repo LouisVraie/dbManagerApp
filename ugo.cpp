@@ -10,6 +10,7 @@
 #include <QListWidget>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QSqlError>
 #include "dialogconnexion.h"
 
 

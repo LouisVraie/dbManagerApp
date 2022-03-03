@@ -16,6 +16,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    bool connection();
+
     //ugo.cpp
     void afficherListeTable();
     void remplirComboBox();
@@ -23,9 +25,6 @@ public:
     //remi.cpp
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
-
-    //louis.cpp
-    bool connection();
 
 private slots:
     //nolann.cpp
@@ -44,7 +43,6 @@ private slots:
 
     //remi.cpp
     void on_pushButton_Ajouter_clicked();
-
     void on_action_Disconnect_triggered();
 
 private:
