@@ -183,7 +183,7 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab_TableUtilisateur">
         <attribute name="title">
@@ -540,11 +540,6 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="toolTip">
     <string>Quit</string>
-   </property>
-  </action>
-  <action name="action_D_connexion">
-   <property name="text">
-    <string>&amp;Déconnexion </string>
    </property>
   </action>
   <action name="action_Disconnect">
