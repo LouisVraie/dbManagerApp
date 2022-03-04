@@ -17,6 +17,7 @@ public:
     ~MainWindow();
 
     bool connection();
+    void initInputs();
 
     //ugo.cpp
     void afficherListeTable();
@@ -56,6 +57,7 @@ private:
 
     //louis.cpp
     QString username, password, database, databaseIp;
+    QString filter;
 };
 
 #endif // MAINWINDOW_H
