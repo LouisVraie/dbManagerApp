@@ -11,5 +11,7 @@
         <file>images/logo_add_table.png</file>
         <file>images/logo_enter_execute.png</file>
         <file>images/logo_filter.png</file>
+        <file>images/logo_table.png</file>
+        <file>images/logo_user_request.png</file>
     </qresource>
 </RCC>
