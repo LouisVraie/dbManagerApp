@@ -158,12 +158,39 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
     ui->listWidget_Table->clear();//On clear la liste
     ui->tableWidget_Table->clear();//On clear le contenu des tables
 
-    int nbCol = ui->tableWidget_Table->columnCount();
-    for (int i = nbCol; i >= 0 ; i-- )
+    int nbCol = ui->tableWidget_Table->columnCount();//Compte le combre de colonne
+    for (int i = nbCol; i >= 0 ; i-- )//Tant que colonne supérieur ou égal à 0
     {
         qDebug()<<i;
-        ui->tableWidget_Table->removeColumn(i);
+        ui->tableWidget_Table->removeColumn(i);//La colonne est supprmée
     }
 
     afficherListeTable();//On réaffiche les tables
+}
+
+
+
+/*********BOUTONS CLEAR***********/
+
+//Dans le mainwindow.h private slots :
+//  on_pushButtonClearRequest_clicked()
+//  on_pushButtonClearResult_clicked()
+
+
+void MainWindow::on_pushButtonClearRequest_clicked()
+{
+    ui->plainTextEdit_RequeteSQL->clear();//Clear le plainText
+}
+
+void MainWindow::on_pushButtonClearResult_clicked()
+{
+    ui->textBrowserRequestResult->clear();//Clear le textBrowser
+    ui->tableWidgetRequestResult->clear();//Clear le contenu de la table
+
+    int nbCol = ui->tableWidgetRequestResult->columnCount();//Compte le combre de colonne
+    for (int i = nbCol; i >= 0 ; i-- )//Tant que colonne supérieur ou égal à 0
+    {
+        qDebug()<<i;
+        ui->tableWidgetRequestResult->removeColumn(i);//La colonne est supprmée
+    }
 }
