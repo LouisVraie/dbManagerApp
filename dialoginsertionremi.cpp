@@ -128,28 +128,28 @@ void DialogInsertionRemi::affichageConsole(QString commande)
     qDebug()<<"void DialogInsertionRemi::affichageConsole(QString commande)";
 
     //on ajoute une ligne dans la Console
-    ui->textEditResultatError->append(commande);
+    ui->textBrowserResultatError->append(commande);
 
     //initialisation de la scrolbar pour qu'elle descende automatiquement
-    QScrollBar *scrollbar = ui->textEditResultatError->verticalScrollBar();
+    QScrollBar *scrollbar = ui->textBrowserResultatError->verticalScrollBar();
     bool scrollbarAtBottom  = (scrollbar->value() >= (scrollbar->maximum() - 4));
     int scrollbarPrevValue = scrollbar->value();
 
 
-    ui->textEditResultatError->moveCursor(QTextCursor::End);
+    ui->textBrowserResultatError->moveCursor(QTextCursor::End);
     // begin with newline if text is not empty
-    if (! ui->textEditResultatError->document()->isEmpty())
+    if (! ui->textBrowserResultatError->document()->isEmpty())
     {
-        ui->textEditResultatError->insertHtml(QStringLiteral("<br>"));
+        ui->textBrowserResultatError->insertHtml(QStringLiteral("<br>"));
     }
 
     if (scrollbarAtBottom)
     {
-        ui->textEditResultatError->ensureCursorVisible();
+        ui->textBrowserResultatError->ensureCursorVisible();
     }
     else
     {
-        ui->textEditResultatError->verticalScrollBar()->setValue(scrollbarPrevValue);
+        ui->textBrowserResultatError->verticalScrollBar()->setValue(scrollbarPrevValue);
     }
 
 }
@@ -218,7 +218,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         qDebug()<<"requeteInsertion"<<requeteInsertion;
 
         //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
-        if(envoie.lastError().text() != " "){
+        if(envoie.lastError().text() != ""){
             affichageConsole(requeteInsertion + " : " + "The request was successful");
         }
         else {

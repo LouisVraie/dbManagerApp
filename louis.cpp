@@ -8,6 +8,7 @@
  */
 void MainWindow::on_action_Disconnect_triggered()
 {
+    qDebug()<<"void MainWindow::on_action_Disconnect_triggered()";
     //on cache la mainwindow
     hide();
 

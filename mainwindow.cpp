@@ -31,10 +31,12 @@ MainWindow::~MainWindow()
 
 /**
  * @brief MainWindow::connection
- * @return bool
+ * Méthode publique de la classe MainWindow qui affiche la fenêtre de connexion et initialise la MainWindow
+ * @return bool Booléen
  */
 bool MainWindow::connection()
 {
+    qDebug()<<"bool MainWindow::connection()";
     DialogConnexion connexion;
 
     if(connexion.exec()==QDialog::Accepted) {
@@ -63,6 +65,7 @@ bool MainWindow::connection()
  */
 void MainWindow::initInputs()
 {
+    qDebug()<<"void MainWindow::initInputs()";
     //nolann.cpp
     nomTable = "";
     req = "";
@@ -81,8 +84,20 @@ void MainWindow::initInputs()
     databaseIp = "";
     filter = "";
 
+    //user table
     ui->lineEditFilter->setText("");
-    ui->plainTextEdit_RequeteSQL->setPlainText("");
-    ui->textBrowserRequestResult->setText("");
     ui->textBrowserActionResult->setText("");
+
+    //user request
+    on_pushButtonClearRequest_clicked();
+    on_pushButtonClearResult_clicked();
+}
+
+/**
+ * @brief MainWindow::on_pushButtonFilter_clicked
+ * Méthode private slots
+ */
+void MainWindow::on_pushButtonFilter_clicked()
+{
+    qDebug()<<"void MainWindow::on_pushButtonFilter_clicked()";
 }
