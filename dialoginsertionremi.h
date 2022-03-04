@@ -42,6 +42,8 @@ private slots:
 
     void on_pushButtonAnnuler_clicked();
 
+    void on_pushButtonQuitter_clicked();
+
 private:
     Ui::DialogInsertionRemi *ui;
 

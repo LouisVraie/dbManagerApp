@@ -176,6 +176,17 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
             QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
 
             qDebug()<<"vector = "<<listeTypeChamps;
+
+            //on verifie si la chaine contient un caractere special tel que ' "
+            if(valeurItem.indexOf("'") != -1 )
+            {
+                valeurItem.replace(valeurItem.indexOf("'"),1, "''");
+            }
+            else if (valeurItem.indexOf('"') != -1 )
+            {
+                valeurItem.replace(valeurItem.indexOf('"'), 1, '""');
+            }
+
             //si le champ est un varchar
             if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
             {
@@ -217,4 +228,11 @@ void DialogInsertionRemi::on_pushButtonAnnuler_clicked()
         ui->tableWidgetInsertion->setRowCount(0);
         createNewLigne();
     }
+}
+
+void DialogInsertionRemi::on_pushButtonQuitter_clicked()
+{
+    qDebug()<<"DialogInsertionRemi::on_pushButtonQuitter_clicked";
+
+    close();
 }
