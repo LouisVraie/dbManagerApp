@@ -27,7 +27,7 @@ color: rgb(255, 255, 255);</string>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTableWidget" name="tableWidgetInsertion">
@@ -87,7 +87,7 @@ color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QTextBrowser" name="textBrowserResultatError"/>
