@@ -173,8 +173,8 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
 /*********BOUTONS CLEAR***********/
 
 //Dans le mainwindow.h private slots :
-//  on_pushButtonClearRequest_clicked()
-//  on_pushButtonClearResult_clicked()
+//on_pushButtonClearRequest_clicked()
+//on_pushButtonClearResult_clicked()
 
 
 void MainWindow::on_pushButtonClearRequest_clicked()
