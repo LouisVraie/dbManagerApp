@@ -26,7 +26,7 @@ public:
     //remi.cpp
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
-    QString gestionSpecialCaractere(QString chaine);
+    static QString gestionSpecialCaractere(QString chaine);
 
 private slots:
     //nolann.cpp
