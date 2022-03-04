@@ -91,12 +91,3 @@ void MainWindow::initInputs()
     on_pushButtonClearRequest_clicked();
     on_pushButtonClearResult_clicked();
 }
-
-/**
- * @brief MainWindow::on_pushButtonFilter_clicked
- * Méthode private slots
- */
-void MainWindow::on_pushButtonFilter_clicked()
-{
-    qDebug()<<"void MainWindow::on_pushButtonFilter_clicked()";
-}
