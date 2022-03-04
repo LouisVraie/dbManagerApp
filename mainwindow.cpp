@@ -81,8 +81,20 @@ void MainWindow::initInputs()
     databaseIp = "";
     filter = "";
 
+    //user table
     ui->lineEditFilter->setText("");
-    ui->plainTextEdit_RequeteSQL->setPlainText("");
-    ui->textBrowserRequestResult->setText("");
     ui->textBrowserActionResult->setText("");
+
+    //user request
+    on_pushButtonClearRequest_clicked();
+    on_pushButtonClearResult_clicked();
+}
+
+/**
+ * @brief MainWindow::on_pushButtonFilter_clicked
+ * Méthode private slots
+ */
+void MainWindow::on_pushButtonFilter_clicked()
+{
+
 }

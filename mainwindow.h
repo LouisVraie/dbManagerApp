@@ -35,6 +35,8 @@ private slots:
     //ugo.cpp
     void on_listWidget_Table_itemClicked(QListWidgetItem *item);
     void on_comboBox_Databases_activated(const QString &);
+    void on_pushButtonClearRequest_clicked();
+    void on_pushButtonClearResult_clicked();
 
     //theo.cpp
     void on_pushButton_Executer_clicked();
@@ -45,6 +47,8 @@ private slots:
     //remi.cpp
     void on_pushButton_Ajouter_clicked();
     void on_action_Disconnect_triggered();
+
+    void on_pushButtonFilter_clicked();
 
 private:
     Ui::MainWindow *ui;
