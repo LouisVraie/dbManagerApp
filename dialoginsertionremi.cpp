@@ -184,7 +184,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
             }
             else if (valeurItem.indexOf('"') != -1 )
             {
-                valeurItem.replace(valeurItem.indexOf('"'), 1, '""');
+                valeurItem.replace(valeurItem.indexOf('"'), 1, "''");
             }
 
             //si le champ est un varchar

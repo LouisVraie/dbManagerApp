@@ -10,6 +10,7 @@
 bool quitConfirm();
 void closeEvent(QCloseEvent *event);
 void on_pushButton_Ajouter_clicked():
+QString gestionSpecialCaractere(QString chaine);
 
  */
 
@@ -43,6 +44,22 @@ void MainWindow::closeEvent(QCloseEvent *event)
     else {
         event->ignore();
     }
+}
+
+QString MainWindow::gestionSpecialCaractere(QString chaine)
+{
+    qDebug()<<"QString MainWindow::gestionSpecialCaractere(QString chaine)";
+
+    //on verifie si la chaine contient un caractere special tel que ' "
+    if(chaine.indexOf("'") != -1 )
+    {
+        chaine.replace(chaine.indexOf("'"),1, "''");
+    }
+    else if (chaine.indexOf('"') != -1 )
+    {
+        chaine.replace(chaine.indexOf('"'), 1, "''");
+    }
+    return  chaine;
 }
 
 /**
