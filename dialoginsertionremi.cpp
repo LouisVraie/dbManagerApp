@@ -1,5 +1,6 @@
 #include "dialoginsertionremi.h"
 #include "ui_dialoginsertionremi.h"
+#include "mainwindow.h"
 #include <QLabel>
 #include <QtSql/QSqlQuery>
 #include <QDebug>
@@ -177,15 +178,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
 
             qDebug()<<"vector = "<<listeTypeChamps;
 
-            //on verifie si la chaine contient un caractere special tel que ' "
-            if(valeurItem.indexOf("'") != -1 )
-            {
-                valeurItem.replace(valeurItem.indexOf("'"),1, "''");
-            }
-            else if (valeurItem.indexOf('"') != -1 )
-            {
-                valeurItem.replace(valeurItem.indexOf('"'), 1, "''");
-            }
+            valeurItem = MainWindow::gestionSpecialCaractere(valeurItem);
 
             //si le champ est un varchar
             if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
