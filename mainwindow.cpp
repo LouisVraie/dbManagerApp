@@ -31,10 +31,12 @@ MainWindow::~MainWindow()
 
 /**
  * @brief MainWindow::connection
- * @return bool
+ * Méthode publique de la classe MainWindow qui affiche la fenêtre de connexion et initialise la MainWindow
+ * @return bool Booléen
  */
 bool MainWindow::connection()
 {
+    qDebug()<<"bool MainWindow::connection()";
     DialogConnexion connexion;
 
     if(connexion.exec()==QDialog::Accepted) {
@@ -63,6 +65,7 @@ bool MainWindow::connection()
  */
 void MainWindow::initInputs()
 {
+    qDebug()<<"void MainWindow::initInputs()";
     //nolann.cpp
     nomTable = "";
     req = "";
@@ -96,5 +99,5 @@ void MainWindow::initInputs()
  */
 void MainWindow::on_pushButtonFilter_clicked()
 {
-
+    qDebug()<<"void MainWindow::on_pushButtonFilter_clicked()";
 }
