@@ -191,7 +191,6 @@ void MainWindow::on_pushButtonClearResult_clicked()
 {
     qDebug()<<"void MainWindow::on_pushButtonClearResult_clicked()";
 
-    ui->textBrowserRequestResult->clear();//Clear le textBrowser
     ui->tableWidgetRequestResult->clear();//Clear le contenu de la table
 
     int nbCol = ui->tableWidgetRequestResult->columnCount();//Compte le combre de colonne
