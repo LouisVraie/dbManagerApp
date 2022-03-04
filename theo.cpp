@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "ui_mainwindow.h"
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlError>
@@ -11,8 +11,8 @@
  * depuis le plainTextEdit_RequeteSQL.
  * Puis Execute la commande dans la base de donnée.
  */
+
 void MainWindow::on_pushButton_Executer_clicked(){
-    qDebug()<<"bouton exec";
     //Déclaration d'une variable de récupération de la requete SQL
     QString requeteSQL;
     QString resultatError;
@@ -20,7 +20,6 @@ void MainWindow::on_pushButton_Executer_clicked(){
     //Execute la commande sur la base de donnée
     QSqlQuery query_resultat(requeteSQL);
     resultatError=query_resultat.lastError().text();
-    qDebug()<<"ResultatError"<<resultatError;
     QString sDate = QDateTime::currentDateTime().toString("[dd/MM/yyyy hh:mm:ss]");
     if(resultatError!=" "){
         ui->textBrowserRequestResult->setText(sDate+" "+resultatError);
@@ -28,37 +27,47 @@ void MainWindow::on_pushButton_Executer_clicked(){
     else {
         ui->textBrowserRequestResult->setText(sDate+"Successful request");
     }
-    nomTable = "Achat";//currentTable;/*NOM DA LA TABLE */
 
-    // AFFICHAGE DU HEADER DE LA TABLE
-    nbColonnes = 0;
-    req = "DESC "+nomTable;
-    QSqlQuery query(req);
-    while(query.next())
-    {
-        nbColonnes++;
-        ui->tableWidgetRequestResult->setColumnCount(nbColonnes+1);
-        nomColonne = query.value(0).toString();
-        qDebug()<<nomColonne;
+    AfficheTableauUtilisateur();
 
-        ui->tableWidgetRequestResult->setHorizontalHeaderItem(nbColonnes,new QTableWidgetItem (nomColonne));
-    }
-    ui->tableWidgetRequestResult->setHorizontalHeaderItem(0,new QTableWidgetItem (""));
+}
 
-    ui->tableWidgetRequestResult->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
+void MainWindow::AfficheTableauUtilisateur(){
+    //Déclaration d'une variable de récupération de la requete SQL
+    QString requeteSQL;
+    requeteSQL=ui->plainTextEdit_RequeteSQL->toPlainText();
+    //requeteSQL="show tables;";
+    //Execute la commande sur la base de donnée
+    QSqlQuery query_resultat(requeteSQL);
     // AFFICHAGE DU CONTENU DE LA TABLE
     nbLignes = 0;
-    while(query_resultat.next())
+    //on efface
+    ui->tableWidgetRequestResult->setRowCount(0);
+    ui->tableWidgetRequestResult->setColumnCount(0);
+    int nbColonne=query_resultat.record().count();
+    ui->tableWidgetRequestResult->setColumnCount(nbColonne);
+    int nbLigne=query_resultat.numRowsAffected();
+    ui->tableWidgetRequestResult->setRowCount(nbLigne);
+    int noLigne=0;
+
+
+    if(requeteSQL.trimmed().left(6).toUpper()=="SELECT" || requeteSQL.trimmed().left(4).toUpper()=="DESC" || requeteSQL.trimmed().left(4).toUpper()=="SHOW")
     {
-        nbLignes++;
-        ui->tableWidgetRequestResult->setRowCount(nbLignes);
-        ui->tableWidgetRequestResult->setCellWidget(nbLignes-1,0,new QCheckBox);
-        for(int i=1;i<=nbColonnes;i++)
+        for(int noChamp=0;noChamp<nbColonne;noChamp++)
         {
-            resultat = query_resultat.value(i-1).toString();
-            qDebug()<<resultat;
-            ui->tableWidgetRequestResult->setItem(nbLignes-1,i,new QTableWidgetItem(resultat));
+            ui->tableWidgetRequestResult->setHorizontalHeaderItem(noChamp,new QTableWidgetItem(query_resultat.record().fieldName(noChamp)));
         }
     }
+
+    while(query_resultat.next())
+    {
+
+        for (int noCol=0;noCol<nbColonne;noCol++) {
+            ui->tableWidgetRequestResult->setItem(noLigne,noCol,new QTableWidgetItem(query_resultat.value(noCol).toString()));
+        }
+        noLigne++;
+
+    }
+
 }
+
