@@ -7,11 +7,11 @@
 
 void MainWindow::afficherTableUtilisateur()
 {
-    nomTable = currentTable;/*NOM DA LA TABLE */
+    qDebug()<<"void MainWindow::afficherTableUtilisateur()";
 
     // AFFICHAGE DU HEADER DE LA TABLE
     nbColonnes = 0;
-    req = "DESC "+nomTable;
+    req = "DESC "+currentTable;
     QSqlQuery query(req);
     while(query.next())
     {
@@ -29,9 +29,9 @@ void MainWindow::afficherTableUtilisateur()
     // AFFICHAGE DU CONTENU DE LA TABLE
     nbLignes = 0;
     /*if(filter != "")
-        req = "SELECT * FROM "+nomTable+" WHERE "+filter;
+        req = "SELECT * FROM "+currentTable+" WHERE "+filter;
     else*/
-        req = "SELECT * FROM "+nomTable;
+        req = "SELECT * FROM "+currentTable;
     QSqlQuery query_resultat(req);
     while(query_resultat.next())
     {
@@ -49,6 +49,7 @@ void MainWindow::afficherTableUtilisateur()
 // MÉTHODE SUPPRIMER
 void MainWindow::on_pushButton_Supprimer_clicked()
 {
+    qDebug()<<"void MainWindow::on_pushButton_Supprimer_clicked()";
     int nbChecked = 0;
     int ligne = ui->tableWidget_Table->rowCount()-1;
     QList<int>listeSupprimer;
@@ -70,7 +71,7 @@ void MainWindow::on_pushButton_Supprimer_clicked()
             //suppression
             for(int i=listeSupprimer.length()-1;i>=0;i--)
             {
-                req = "DELETE FROM "+nomTable+" WHERE "+ui->tableWidget_Table->horizontalHeaderItem(1)->text()+"='"+ui->tableWidget_Table->item(listeSupprimer.at(i),1)->text()+"'";
+                req = "DELETE FROM "+currentTable+" WHERE "+ui->tableWidget_Table->horizontalHeaderItem(1)->text()+"='"+ui->tableWidget_Table->item(listeSupprimer.at(i),1)->text()+"'";
                 //qDebug()<<listeSupprimer.at(i);
                 for(int j=1;j<=nbColonnes;j++)
                 {
