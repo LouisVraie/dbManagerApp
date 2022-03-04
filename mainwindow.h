@@ -55,7 +55,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     //nolann.cpp
-    QString nomTable,req,nomColonne,resultat;
+    QString req,nomColonne,resultat;
     int nbColonnes,nbLignes;
 
     //ugo.cpp

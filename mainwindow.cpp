@@ -67,7 +67,6 @@ void MainWindow::initInputs()
 {
     qDebug()<<"void MainWindow::initInputs()";
     //nolann.cpp
-    nomTable = "";
     req = "";
     nomColonne = "";
     resultat = "";
