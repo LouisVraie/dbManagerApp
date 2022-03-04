@@ -39,7 +39,7 @@ void MainWindow::afficherListeTable()
         currentTable=ui->listWidget_Table->currentItem()->text();
         afficherTableUtilisateur();
     } else {
-        ui->textBrowserActionResult->setText(tr("The database ")+database+tr(" doesn't contain any table !"));
+        ui->textBrowserRequestResult->setText(tr("The database ")+database+tr(" doesn't contain any table !"));
     }
 }
 
