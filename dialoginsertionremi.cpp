@@ -218,7 +218,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         qDebug()<<"requeteInsertion"<<requeteInsertion;
 
         //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
-        if(envoie.lastError().text() != " "){
+        if(envoie.lastError().text() != ""){
             affichageConsole(requeteInsertion + " : " + "The request was successful");
         }
         else {
