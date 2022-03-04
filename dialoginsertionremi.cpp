@@ -129,29 +129,6 @@ void DialogInsertionRemi::affichageConsole(QString commande)
 
     //on ajoute une ligne dans la Console
     ui->textBrowserResultatError->append(commande);
-
-    //initialisation de la scrolbar pour qu'elle descende automatiquement
-    QScrollBar *scrollbar = ui->textBrowserResultatError->verticalScrollBar();
-    bool scrollbarAtBottom  = (scrollbar->value() >= (scrollbar->maximum() - 4));
-    int scrollbarPrevValue = scrollbar->value();
-
-
-    ui->textBrowserResultatError->moveCursor(QTextCursor::End);
-    // begin with newline if text is not empty
-    if (! ui->textBrowserResultatError->document()->isEmpty())
-    {
-        ui->textBrowserResultatError->insertHtml(QStringLiteral("<br>"));
-    }
-
-    if (scrollbarAtBottom)
-    {
-        ui->textBrowserResultatError->ensureCursorVisible();
-    }
-    else
-    {
-        ui->textBrowserResultatError->verticalScrollBar()->setValue(scrollbarPrevValue);
-    }
-
 }
 
 /**
@@ -218,7 +195,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         qDebug()<<"requeteInsertion"<<requeteInsertion;
 
         //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
-        if(envoie.lastError().text() != ""){
+        if(envoie.lastError().text() == " "){
             affichageConsole(requeteInsertion + " : " + "The request was successful");
         }
         else {
