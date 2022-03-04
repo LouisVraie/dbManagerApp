@@ -38,7 +38,10 @@ bool MainWindow::connection()
     DialogConnexion connexion;
 
     if(connexion.exec()==QDialog::Accepted) {
-        //récupération des informations de connexion
+        //initialisation des champs et des propriétés
+        initInputs();
+
+        //récupération des informations de connexion et initialisation des champs
         username = connexion.getUsername();
         password = connexion.getPassword();
         database = connexion.getDatabaseName();
@@ -52,4 +55,34 @@ bool MainWindow::connection()
     } else {
         return false;
     }
+}
+
+/**
+ * @brief MainWindow::initInputs
+ * Méthode publique de la classe MainWindow qui initialise les propriétés et les inputs
+ */
+void MainWindow::initInputs()
+{
+    //nolann.cpp
+    nomTable = "";
+    req = "";
+    nomColonne = "";
+    resultat = "";
+    nbColonnes = 0;
+    nbLignes = 0;
+
+    //ugo.cpp
+    currentTable = "";
+
+    //louis.cpp
+    username = "";
+    password = "";
+    database = "";
+    databaseIp = "";
+    filter = "";
+
+    ui->lineEditFilter->setText("");
+    ui->plainTextEdit_RequeteSQL->setPlainText("");
+    ui->textBrowserRequestResult->setText("");
+    ui->textBrowserActionResult->setText("");
 }
