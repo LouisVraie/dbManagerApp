@@ -22,6 +22,7 @@
  */
 void MainWindow::afficherListeTable()
 {
+    qDebug()<<"void MainWindow::afficherListeTable()";
     ui->listWidget_Table->clear();//On clear la liste
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
     QSqlQuery reqAfficheTable(txtAfficheTable);//Convertit la requête en Sql
@@ -51,6 +52,7 @@ void MainWindow::afficherListeTable()
  */
 void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)//Méthode pour
 {
+    qDebug()<<"void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)";
     this->currentTable=item->text();//Met à jour la variable
     qDebug()<<currentTable;
     afficherTableUtilisateur();
@@ -74,6 +76,7 @@ public :
  */
 bool DialogConnexion::quitConfirmConnexion()
 {
+    qDebug()<<"bool Dialog";
     if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous quitter la page de connexion ?", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)//Si l'utilisateur clique sur "oui"
     {
         return true;//Le booléen retourne "vrai"
@@ -91,6 +94,7 @@ bool DialogConnexion::quitConfirmConnexion()
  */
 void DialogConnexion::closeEvent(QCloseEvent *event)
 {
+    qDebug()<<"Quitter";
     if(quitConfirmConnexion())//Si le bouléen est vrai
     {
         event->accept();//Fermeture de l'application
@@ -143,6 +147,7 @@ void MainWindow::remplirComboBox()
 
 void MainWindow::on_comboBox_Databases_activated(const QString &)
 {
+    qDebug()<<"void MainWindow::on_comboBox_Databases_activated(const QString &)";
     database=ui->comboBox_Databases->currentText();//On change le nom de la base
     qDebug()<<database;
 
@@ -161,7 +166,6 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
     int nbCol = ui->tableWidget_Table->columnCount();//Compte le combre de colonne
     for (int i = nbCol; i >= 0 ; i-- )//Tant que colonne supérieur ou égal à 0
     {
-        qDebug()<<i;
         ui->tableWidget_Table->removeColumn(i);//La colonne est supprmée
     }
 
@@ -179,18 +183,20 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
 
 void MainWindow::on_pushButtonClearRequest_clicked()
 {
+    qDebug()<<"void MainWindow::on_pushButtonClearRequest_clicked()";
     ui->plainTextEdit_RequeteSQL->clear();//Clear le plainText
 }
 
 void MainWindow::on_pushButtonClearResult_clicked()
 {
+    qDebug()<<"void MainWindow::on_pushButtonClearResult_clicked()";
+
     ui->textBrowserRequestResult->clear();//Clear le textBrowser
     ui->tableWidgetRequestResult->clear();//Clear le contenu de la table
 
     int nbCol = ui->tableWidgetRequestResult->columnCount();//Compte le combre de colonne
     for (int i = nbCol; i >= 0 ; i-- )//Tant que colonne supérieur ou égal à 0
     {
-        qDebug()<<i;
         ui->tableWidgetRequestResult->removeColumn(i);//La colonne est supprmée
     }
 }
