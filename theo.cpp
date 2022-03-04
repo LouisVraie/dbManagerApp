@@ -28,11 +28,11 @@ void MainWindow::on_pushButton_Executer_clicked(){
         ui->textBrowserRequestResult->setText(sDate+"Successful request");
     }
 
-    AfficheTableauUtilisateur();
+    afficherTableauUserRequest();
 
 }
 
-void MainWindow::AfficheTableauUtilisateur(){
+void MainWindow::afficherTableauUserRequest(){
     //Déclaration d'une variable de récupération de la requete SQL
     QString requeteSQL;
     requeteSQL=ui->plainTextEdit_RequeteSQL->toPlainText();

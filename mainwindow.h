@@ -40,6 +40,7 @@ private slots:
 
     //theo.cpp
     void on_pushButton_Executer_clicked();
+    void afficherTableauUserRequest();
 
     //jonathan.cpp
     void on_action_Quiter_triggered();
