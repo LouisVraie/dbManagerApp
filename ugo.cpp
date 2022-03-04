@@ -27,19 +27,19 @@ void MainWindow::afficherListeTable()
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
     QSqlQuery reqAfficheTable(txtAfficheTable);//Convertit la requête en Sql
     qDebug()<<txtAfficheTable;
-    QString lastError = reqAfficheTable.lastError().text();
-    if (reqAfficheTable.lastError().text().trimmed() == "")
+    if (reqAfficheTable.next())
     {
+        QString libelleTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
+        ui->listWidget_Table->addItem(libelleTable);//Et on l'affiche
         while (reqAfficheTable.next()) {//Tant qu'on peut passer au prochain
-            QString nomTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
-            ui->listWidget_Table->addItem(nomTable);//Et on l'affiche
+            QString libelleTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
+            ui->listWidget_Table->addItem(libelleTable);//Et on l'affiche
         }
-
         ui->listWidget_Table->setCurrentRow(0);
         currentTable=ui->listWidget_Table->currentItem()->text();
         afficherTableUtilisateur();
     } else {
-        ui->textBrowserActionResult->setText(tr("The database ")+database+tr(" doesn't contain any table !"));
+        ui->textBrowserRequestResult->setText(tr("The database ")+database+tr(" doesn't contain any table !"));
     }
 }
 

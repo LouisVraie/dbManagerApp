@@ -86,7 +86,7 @@ void MainWindow::initInputs()
 
     //user table
     ui->lineEditFilter->setText("");
-    ui->textBrowserActionResult->setText("");
+    ui->textBrowserRequestResult->setText("");
 
     //user request
     on_pushButtonClearRequest_clicked();

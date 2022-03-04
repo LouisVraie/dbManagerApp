@@ -80,7 +80,7 @@ void MainWindow::on_pushButton_Supprimer_clicked()
                 qDebug()<<req;
                 QSqlQuery query(req);
                 QString errorMessage=query.lastError().text();
-                ui->textBrowserActionResult->setText(errorMessage);
+                ui->textBrowserRequestResult->setText(errorMessage);
                 listeSupprimer.removeLast();
             }
             afficherTableUtilisateur();
@@ -89,7 +89,7 @@ void MainWindow::on_pushButton_Supprimer_clicked()
     }
     else
     {
-        ui->textBrowserActionResult->setText("No rows selected !");
+        ui->textBrowserRequestResult->setText("No rows selected !");
     }
 }
 
