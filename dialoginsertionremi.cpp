@@ -7,6 +7,8 @@
 #include <QVector>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QSqlError>
+#include <QScrollBar>
 
 DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     QDialog(parent),
@@ -118,6 +120,41 @@ void DialogInsertionRemi::getNomTableSelectionner(QString nomTableChoisi)
 }
 
 /**
+ * @brief Cette fonction permet de rajouter une ligne dans la console.
+ * @param commande : QString comportant la ligne à faire afficher dans la console
+ */
+void DialogInsertionRemi::affichageConsole(QString commande)
+{
+    qDebug()<<"void DialogInsertionRemi::affichageConsole(QString commande)";
+
+    //on ajoute une ligne dans la Console
+    ui->textEditResultatError->append(commande);
+
+    //initialisation de la scrolbar pour qu'elle descende automatiquement
+    QScrollBar *scrollbar = ui->textEditResultatError->verticalScrollBar();
+    bool scrollbarAtBottom  = (scrollbar->value() >= (scrollbar->maximum() - 4));
+    int scrollbarPrevValue = scrollbar->value();
+
+
+    ui->textEditResultatError->moveCursor(QTextCursor::End);
+    // begin with newline if text is not empty
+    if (! ui->textEditResultatError->document()->isEmpty())
+    {
+        ui->textEditResultatError->insertHtml(QStringLiteral("<br>"));
+    }
+
+    if (scrollbarAtBottom)
+    {
+        ui->textEditResultatError->ensureCursorVisible();
+    }
+    else
+    {
+        ui->textEditResultatError->verticalScrollBar()->setValue(scrollbarPrevValue);
+    }
+
+}
+
+/**
  * @brief Cette fonction permet de faire appel a la fonction createNewLigne pour ajouter une ligne au QTableWidget
  */
 void DialogInsertionRemi::on_pushButtonAddLigne_clicked()
@@ -146,7 +183,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
     while (query.next())
     {
         //on push les types des champsdans un vector
-         listeTypeChamps.push_back( query.value(1).toString() );
+        listeTypeChamps.push_back( query.value(1).toString() );
     }
 
     //pour chaque ligne du QTableWidget
@@ -159,26 +196,35 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
         {
             //on créé une variable string qui contient la valeur de l'item selectionné
-             QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
+            QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
 
-             qDebug()<<"vector = "<<listeTypeChamps;
+            qDebug()<<"vector = "<<listeTypeChamps;
             //si le champ est un varchar
-             if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
+            if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
             {
                 requeteInsertion += "'" + valeurItem + "', ";
             }
-             else {
-                 requeteInsertion += valeurItem + ", ";
-             }
+            else {
+                requeteInsertion += valeurItem + ", ";
+            }
         }
         //on complete la requete pour qu'elle insere
-            //supprime les 2 derniers caracteres pour enlever ", "
+        //supprime les 2 derniers caracteres pour enlever ", "
         requeteInsertion = requeteInsertion.remove(requeteInsertion.size()-2, 2);
         requeteInsertion += ");";
 
-       //on execute la requete
+        //on execute la requete
         QSqlQuery envoie(requeteInsertion);
         qDebug()<<"requeteInsertion"<<requeteInsertion;
+
+        //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
+        if(envoie.lastError().text() != " "){
+            affichageConsole(requeteInsertion + " : " + "The request was successful");
+        }
+        else {
+            affichageConsole(requeteInsertion + " : " + envoie.lastError().text());
+        }
+
     }
 }
 
@@ -192,5 +238,6 @@ void DialogInsertionRemi::on_pushButtonAnnuler_clicked()
     if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment Annuler ? Cela entrainera la réinitialisation de tous vos champs", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
     {
         ui->tableWidgetInsertion->setRowCount(0);
+        createNewLigne();
     }
 }

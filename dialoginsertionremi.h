@@ -24,6 +24,11 @@ public:
     void createTableColonne(QString nomDeLaTable);
     void getNomTableSelectionner(QString nomTableChoisi);
 
+
+    //affichage console
+    void affichageConsole(QString commande);
+
+    //confirmation exit
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
 
