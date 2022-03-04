@@ -18,6 +18,7 @@
 
 /**
  * @brief Affiche les tables de la base
+ * cette méthode vide la listWidget des tables et obtient les tables de la base de données
  */
 void MainWindow::afficherListeTable()
 {
