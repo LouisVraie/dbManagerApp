@@ -7,5 +7,9 @@
         <file>images/logo_close.png</file>
         <file>images/logo_add.png</file>
         <file>images/logo_save.png</file>
+        <file>images/logo_trash.png</file>
+        <file>images/logo_add_table.png</file>
+        <file>images/logo_enter_execute.png</file>
+        <file>images/logo_filter.png</file>
     </qresource>
 </RCC>

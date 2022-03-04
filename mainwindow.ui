@@ -28,7 +28,7 @@ color: rgb(255, 255, 255);</string>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QLabel" name="labelSelectedDatabase">
@@ -37,7 +37,7 @@ color: rgb(255, 255, 255);</string>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>false</italic>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -84,7 +84,7 @@ color: rgb(255, 255, 255);</string>
             <family>Lato</family>
             <pointsize>12</pointsize>
             <weight>75</weight>
-            <italic>false</italic>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -92,6 +92,9 @@ color: rgb(255, 255, 255);</string>
            <string>Table list :</string>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QTreeView" name="treeView"/>
         </item>
         <item>
          <widget class="QListWidget" name="listWidget_Table">
@@ -148,7 +151,17 @@ color: rgb(255, 255, 255);</string>
              <string notr="true"/>
             </property>
             <property name="text">
-             <string>Add Table</string>
+             <string> Add Table</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/images/images/logo_add_table.png</normaloff>:/images/images/logo_add_table.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -186,7 +199,7 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="tab_TableUtilisateur">
         <attribute name="title">
@@ -216,7 +229,7 @@ color: rgb(255, 255, 255);</string>
              <property name="font">
               <font>
                <family>Lato</family>
-               <pointsize>12</pointsize>
+               <pointsize>13</pointsize>
                <weight>75</weight>
                <italic>true</italic>
                <bold>true</bold>
@@ -224,6 +237,16 @@ color: rgb(255, 255, 255);</string>
              </property>
              <property name="text">
               <string>Filter</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/images/images/logo_filter.png</normaloff>:/images/images/logo_filter.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -330,7 +353,7 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="text">
-              <string>  Save</string>
+              <string> Save</string>
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
@@ -371,6 +394,16 @@ color: rgb(255, 255, 255);</string>
              <property name="text">
               <string>Delete</string>
              </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/images/images/logo_trash.png</normaloff>:/images/images/logo_trash.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item>
@@ -400,7 +433,7 @@ color: rgb(255, 255, 255);</string>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
               <widget class="QLabel" name="labelPersonnalRequest">
@@ -462,7 +495,17 @@ color: rgb(255, 255, 255);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Execute</string>
+                  <string> Execute</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="images.qrc">
+                   <normaloff>:/images/images/logo_enter_execute.png</normaloff>:/images/images/logo_enter_execute.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
                  </property>
                 </widget>
                </item>
@@ -478,7 +521,17 @@ color: rgb(255, 255, 255);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Clear</string>
+                  <string> Clear</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="images.qrc">
+                   <normaloff>:/images/images/logo_delete_button_earaser.png</normaloff>:/images/images/logo_delete_button_earaser.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
                  </property>
                 </widget>
                </item>
@@ -486,7 +539,7 @@ color: rgb(255, 255, 255);</string>
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
               <widget class="QLabel" name="labelRequestResult">
@@ -560,7 +613,17 @@ color: rgb(255, 255, 255);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Clear</string>
+                  <string> Clear</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="images.qrc">
+                   <normaloff>:/images/images/logo_delete_button_earaser.png</normaloff>:/images/images/logo_delete_button_earaser.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
                  </property>
                 </widget>
                </item>

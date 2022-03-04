@@ -14,7 +14,7 @@
    <string>dbManagerApp - Connection</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="images.qrc">
+   <iconset>
     <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
   </property>
   <property name="styleSheet">
@@ -313,7 +313,7 @@ color: rgb(255, 255, 255);</string>
             <string> Connection</string>
            </property>
            <property name="icon">
-            <iconset resource="images.qrc">
+            <iconset>
              <normaloff>:/images/images/logo_login.png</normaloff>:/images/images/logo_login.png</iconset>
            </property>
            <property name="iconSize">
@@ -352,10 +352,10 @@ color: rgb(255, 255, 255);</string>
             </font>
            </property>
            <property name="text">
-            <string>  Delete</string>
+            <string>  Clear</string>
            </property>
            <property name="icon">
-            <iconset resource="images.qrc">
+            <iconset>
              <normaloff>:/images/images/logo_delete_button_earaser.png</normaloff>:/images/images/logo_delete_button_earaser.png</iconset>
            </property>
            <property name="iconSize">
@@ -397,7 +397,7 @@ color: rgb(255, 255, 255);</string>
             <string> Close</string>
            </property>
            <property name="icon">
-            <iconset resource="images.qrc">
+            <iconset>
              <normaloff>:/images/images/logo_close.png</normaloff>:/images/images/logo_close.png</iconset>
            </property>
           </widget>
@@ -423,8 +423,6 @@ color: rgb(255, 255, 255);</string>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
