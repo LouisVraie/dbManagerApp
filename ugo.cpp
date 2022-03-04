@@ -27,8 +27,8 @@ void MainWindow::afficherListeTable()
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
     QSqlQuery reqAfficheTable(txtAfficheTable);//Convertit la requête en Sql
     qDebug()<<txtAfficheTable;
-
-    if (reqAfficheTable.lastError().text() == " ")
+    QString lastError = reqAfficheTable.lastError().text();
+    if (reqAfficheTable.lastError().text().trimmed() == "")
     {
         while (reqAfficheTable.next()) {//Tant qu'on peut passer au prochain
             QString nomTable=reqAfficheTable.value(0).toString();//On récupère le nom de la table
