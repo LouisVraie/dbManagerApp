@@ -94,9 +94,6 @@ color: rgb(255, 255, 255);</string>
          </widget>
         </item>
         <item>
-         <widget class="QTreeView" name="treeView"/>
-        </item>
-        <item>
          <widget class="QListWidget" name="listWidget_Table">
           <property name="minimumSize">
            <size>
