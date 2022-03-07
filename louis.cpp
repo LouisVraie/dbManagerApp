@@ -18,3 +18,15 @@ void MainWindow::on_action_Disconnect_triggered()
         show();
     }
 }
+
+/**
+ * @brief MainWindow::on_pushButtonFilter_clicked
+ * Méthode private slots de la classe MainWindow qui
+ */
+void MainWindow::on_pushButtonFilter_clicked()
+{
+    qDebug()<<"void MainWindow::on_pushButtonFilter_clicked()";
+    filter = ui->lineEditFilter->text();
+    afficherTableUtilisateur();
+    filter = "";
+}

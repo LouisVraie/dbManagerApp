@@ -23,6 +23,7 @@
 void MainWindow::afficherListeTable()
 {
     qDebug()<<"void MainWindow::afficherListeTable()";
+    ui->tabWidget->setCurrentIndex(0);
     ui->listWidget_Table->clear();//On clear la liste
     QString txtAfficheTable ="SHOW TABLES;";//Ligne de code sql en string
     QSqlQuery reqAfficheTable(txtAfficheTable);//Convertit la requête en Sql
@@ -54,8 +55,8 @@ void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)//Méthod
 {
     qDebug()<<"void MainWindow::on_listWidget_Table_itemClicked(QListWidgetItem *item)";
     this->currentTable=item->text();//Met à jour la variable
-    qDebug()<<currentTable;
     afficherTableUtilisateur();
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 /**********AVERTISSEMENT FERMETURE DIALOG************/
@@ -125,7 +126,6 @@ void MainWindow::remplirComboBox()
 {
     qDebug()<<"void MainWindow::remplirComboBox()";
     ui->comboBox_Databases->clear();//Nétoie la comboBox
-    qDebug()<<database;
 
 
     QString txtReqRemblirComboBox = "SHOW DATABASES";//Ecrit la requête qui affiche les bases

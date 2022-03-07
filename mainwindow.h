@@ -26,7 +26,7 @@ public:
     //remi.cpp
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
-    QString gestionSpecialCaractere(QString chaine);
+    static QString gestionSpecialCaractere(QString chaine);
 
 private slots:
     //nolann.cpp
@@ -55,7 +55,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     //nolann.cpp
-    QString nomTable,req,nomColonne,resultat;
+    QString req,nomColonne,resultat;
     int nbColonnes,nbLignes;
 
     //ugo.cpp

@@ -1,5 +1,6 @@
 #include "dialoginsertionremi.h"
 #include "ui_dialoginsertionremi.h"
+#include "mainwindow.h"
 #include <QLabel>
 #include <QtSql/QSqlQuery>
 #include <QDebug>
@@ -163,6 +164,9 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         listeTypeChamps.push_back( query.value(1).toString() );
     }
 
+    //on creer un bool pour savoir si il va y avoir une erreur plus tard
+    bool ifErrorRequete = false;
+
     //pour chaque ligne du QTableWidget
     for (int nombreLigne = 0; nombreLigne < ui->tableWidgetInsertion->rowCount(); nombreLigne++)
     {
@@ -177,15 +181,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
 
             qDebug()<<"vector = "<<listeTypeChamps;
 
-            //on verifie si la chaine contient un caractere special tel que ' "
-            if(valeurItem.indexOf("'") != -1 )
-            {
-                valeurItem.replace(valeurItem.indexOf("'"),1, "''");
-            }
-            else if (valeurItem.indexOf('"') != -1 )
-            {
-                valeurItem.replace(valeurItem.indexOf('"'), 1, "''");
-            }
+            valeurItem = MainWindow::gestionSpecialCaractere(valeurItem);
 
             //si le champ est un varchar
             if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
@@ -211,8 +207,14 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         }
         else {
             affichageConsole(requeteInsertion + " : " + envoie.lastError().text());
+            ifErrorRequete = true;
         }
 
+    }
+    //si y'il n'y a pas d'erreur lors de l'insertion on ferme la fenetre
+    if(!ifErrorRequete)
+    {
+        close();
     }
 }
 
@@ -223,10 +225,13 @@ void DialogInsertionRemi::on_pushButtonAnnuler_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonAnnuler_clicked";
 
-    if(QMessageBox::warning(this,this->windowTitle(),"Voulez-vous vraiment Annuler ? Cela entrainera la réinitialisation de tous vos champs", QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    if(ui->tableWidgetInsertion->rowCount() > 1)
     {
-        ui->tableWidgetInsertion->setRowCount(0);
+        ui->tableWidgetInsertion->setRowCount(ui->tableWidgetInsertion->rowCount()-2);
         createNewLigne();
+    }
+    else if (ui->tableWidgetInsertion->rowCount() == 1) {
+        ui->tableWidgetInsertion->setRowCount(0);
     }
 }
 
