@@ -28,9 +28,9 @@ void MainWindow::afficherTableUtilisateur()
 
     // AFFICHAGE DU CONTENU DE LA TABLE
     nbLignes = 0;
-    /*if(filter != "")
+    if(filter != "")
         req = "SELECT * FROM "+currentTable+" WHERE "+filter;
-    else*/
+    else
         req = "SELECT * FROM "+currentTable;
     QSqlQuery query_resultat(req);
     while(query_resultat.next())
