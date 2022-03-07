@@ -8,7 +8,7 @@
 void MainWindow::afficherTableUtilisateur()
 {
     qDebug()<<"void MainWindow::afficherTableUtilisateur()";
-
+    ui->tableWidget_Table->clear();
     // AFFICHAGE DU HEADER DE LA TABLE
     nbColonnes = 0;
     req = "DESC "+currentTable;
@@ -41,6 +41,8 @@ void MainWindow::afficherTableUtilisateur()
         for(int i=1;i<=nbColonnes;i++)
         {
             resultat = query_resultat.value(i-1).toString();
+            qDebug()<<"resultat = '"<<resultat<<"'";
+            if (resultat == "") resultat="NULL";
             ui->tableWidget_Table->setItem(nbLignes-1,i,new QTableWidgetItem(resultat));
         }
     }
@@ -92,4 +94,21 @@ void MainWindow::on_pushButton_Supprimer_clicked()
         ui->textBrowserRequestResult->setText("No rows selected !");
     }
 }
+/*
+void MainWindow::on_pushButton_Sauvegarder_clicked()
+{
+    qDebug()<<"void MainWindow::on_pushButton_Sauvegarder_clicked()";
 
+    req = "DESC "+currentTable;
+    QSqlQuery query(req);
+    QList<QString>listeClefsPrimaires;
+    while(query.next())
+    {
+        if(query.value(3).toString() == "PRI")
+        {
+            listeClefsPrimaires.append(query.value(0).toString());
+        }
+    }
+
+}
+*/
