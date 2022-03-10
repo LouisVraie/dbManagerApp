@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include <QSqlError>
 #include <QScrollBar>
+#include <QMap>
 
 DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     QDialog(parent),
@@ -28,6 +29,30 @@ DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
 DialogInsertionRemi::~DialogInsertionRemi()
 {
     delete ui;
+}
+
+/**
+ * @brief Cette fonction sert a verifier si la ligne de tableWidget contient une case ne contenant rien
+ * @param numLigneAVerif : Int contenant le numero de la ligne a verifier
+ * @return Retourne un booléen vrai si la ligne contient une case vide
+ */
+bool DialogInsertionRemi::isVide(int numLigneAVerif)
+{
+    qDebug()<<"DialogInsertionRemi::isVide(QTableWidget tableau, int numLigneAVerif)";
+
+    int nbrColonne = ui->tableWidgetInsertion->columnCount();
+    //on defini un bool vide de base signifiant qu'on considere que l'item n'est pas vide de base
+    bool isVide = false;
+
+    //pour chaque colonne du TableWidget
+    for (int compteur = 0; compteur < nbrColonne; compteur++ ) {
+        //on regarde si la 1ere colonne est vide
+        if(ui->tableWidgetInsertion->item(numLigneAVerif, compteur)->text() == "")
+        {
+            isVide = true;
+        }
+    }
+    return isVide;
 }
 
 bool DialogInsertionRemi::quitConfirm()
@@ -57,9 +82,6 @@ void DialogInsertionRemi::closeEvent(QCloseEvent *event)
         event->ignore();
     }
 }
-
-
-
 
 /**
  * @brief insertion d'une nouvelle ligne dans le TableWidget
@@ -144,10 +166,16 @@ void DialogInsertionRemi::on_pushButtonAddLigne_clicked()
     createNewLigne();
 }
 
-
+/**
+ * @brief Cette fonction sert a executer toutes les taches necessaire a l'enregistrement, de la creation de la requete a la verification des caracteres
+ * et gere l'affichage des erreurs post execution
+ */
 void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonEnregistrer_clicked";
+
+    //on cree un QVector qui contiendra le numero de la ligne ayant une erreur
+    QVector<int> listeErreur;
 
     //requete sql pour avoir les types de valeurs des champs
     QString requeteTypeChamp = "DESC "+nomTableSelectionner;
@@ -209,6 +237,8 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         else {
             affichageConsole(requeteInsertion + "   : " + envoie.lastError().text());
             ifErrorRequete = true;
+            //on ajoute la ligne dans le vector contenant la liste des lignes ou se trouve des erreurs
+            listeErreur.append(nombreLigne);
         }
 
     }
@@ -219,10 +249,15 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
     }
     else {
         //si y'a des erreurs
-        //on recupere les lignes où il y a eu des erreurs
-
-        //on supprime les autres
-
+        //on boucle a l'envers pour faciliter la suppression
+        for(int compteur = ui->tableWidgetInsertion->rowCount(); compteur >= 0; compteur-- )
+        {
+            //on supprime les lignes qui n'appartiennent pas a la liste des erreurs
+            if(!listeErreur.contains(compteur))
+            {
+                ui->tableWidgetInsertion->removeRow(compteur);
+            }
+        }
     }
 }
 
