@@ -19,7 +19,7 @@ DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     ui->tableWidgetInsertion->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidgetInsertion->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     createNewLigne();
-    setWindowTitle("dbManagerApp - Insertion")
+    setWindowTitle("dbManagerApp - Insert Row");
 }
 
 /**
