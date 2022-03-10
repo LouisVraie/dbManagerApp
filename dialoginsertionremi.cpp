@@ -19,6 +19,7 @@ DialogInsertionRemi::DialogInsertionRemi(QWidget *parent) :
     ui->tableWidgetInsertion->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidgetInsertion->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     createNewLigne();
+    setWindowTitle("dbManagerApp - Insertion")
 }
 
 /**
@@ -206,7 +207,7 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
             affichageConsole(requeteInsertion + " : " + "The request was successful");
         }
         else {
-            affichageConsole(requeteInsertion + " : " + envoie.lastError().text());
+            affichageConsole(requeteInsertion + "   : " + envoie.lastError().text());
             ifErrorRequete = true;
         }
 
@@ -215,6 +216,13 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
     if(!ifErrorRequete)
     {
         close();
+    }
+    else {
+        //si y'a des erreurs
+        //on recupere les lignes où il y a eu des erreurs
+
+        //on supprime les autres
+
     }
 }
 

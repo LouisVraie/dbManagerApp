@@ -76,6 +76,6 @@ void MainWindow::on_pushButton_Ajouter_clicked()
     //on execute la fonction qui permet la creation des colonnes
     insertion.createTableColonne(MainWindow::ui->listWidget_Table->currentItem()->text());
 
-    qDebug()<<"nomTable = "<<currentTable;
+    qDebug()<<"remi.cpp nomTable = "<<currentTable;
     insertion.exec();
 }
