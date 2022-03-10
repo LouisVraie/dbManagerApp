@@ -227,8 +227,8 @@ void DialogInsertionRemi::on_pushButtonAnnuler_clicked()
 
     if(ui->tableWidgetInsertion->rowCount() > 1)
     {
-        ui->tableWidgetInsertion->setRowCount(ui->tableWidgetInsertion->rowCount()-2);
-        createNewLigne();
+        ui->tableWidgetInsertion->setRowCount(ui->tableWidgetInsertion->rowCount()-1);
+
     }
     else if (ui->tableWidgetInsertion->rowCount() == 1) {
         ui->tableWidgetInsertion->setRowCount(0);
