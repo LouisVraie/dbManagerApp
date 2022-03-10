@@ -9,6 +9,8 @@ void MainWindow::afficherTableUtilisateur()
 {
     qDebug()<<"void MainWindow::afficherTableUtilisateur()";
     ui->tableWidget_Table->clear();
+    ui->tableWidget_Table->setRowCount(0);
+    ui->tableWidget_Table->setColumnCount(0);
     // AFFICHAGE DU HEADER DE LA TABLE
     nbColonnes = 0;
     req = "DESC "+currentTable;
@@ -32,6 +34,7 @@ void MainWindow::afficherTableUtilisateur()
         req = "SELECT * FROM "+currentTable+" WHERE "+filter;
     else
         req = "SELECT * FROM "+currentTable;
+    qDebug()<<req;
     QSqlQuery query_resultat(req);
     while(query_resultat.next())
     {
@@ -46,6 +49,12 @@ void MainWindow::afficherTableUtilisateur()
             ui->tableWidget_Table->setItem(nbLignes-1,i,new QTableWidgetItem(resultat));
         }
     }
+    qDebug()<<query.lastError().text();
+    ui->textBrowserRequestResult->clear();
+    if(query_resultat.lastError().text() != " " && query_resultat.lastError().text() != "")
+        ui->textBrowserRequestResult->setText(query_resultat.lastError().text());
+    else if(ui->tableWidget_Table->rowCount()==0)
+        ui->textBrowserRequestResult->setText("Empty set");
 }
 
 // MÉTHODE SUPPRIMER
@@ -94,7 +103,9 @@ void MainWindow::on_pushButton_Supprimer_clicked()
         ui->textBrowserRequestResult->setText("No rows selected !");
     }
 }
-/*
+
+
+// MÉTHODE SAUVEGARDER
 void MainWindow::on_pushButton_Sauvegarder_clicked()
 {
     qDebug()<<"void MainWindow::on_pushButton_Sauvegarder_clicked()";
@@ -109,6 +120,19 @@ void MainWindow::on_pushButton_Sauvegarder_clicked()
             listeClefsPrimaires.append(query.value(0).toString());
         }
     }
+    /*
+    for(int i=listeClefsPrimaires.length()-1;i>=0;i--)
+    {
+        qDebug()<<"jhgcjgd  "<<listeClefsPrimaires.at(i);
+    }
+    */
+    for(int numColonne=1;numColonne<=nbColonnes;numColonne++)
+    {
+        for(int numLigne=0;numLigne<=nbLignes;numLigne++)
+        {
+
+        }
+    }
+
 
 }
-*/
