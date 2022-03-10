@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialoginsertiontabletheo.h"
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlError>
@@ -69,5 +70,11 @@ void MainWindow::afficherTableauUserRequest(){
 
     }
 
+}
+void MainWindow::on_pushButton_AddTable_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButton_AddTable_clicked";
+    DialogInsertionTableTheo insertion;
+    insertion.exec();
 }
 
