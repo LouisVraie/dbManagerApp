@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         dialogconnexion.cpp \
+    dialoginsertiontabletheo.cpp \
         main.cpp \
         mainwindow.cpp \
     nolann.cpp \
@@ -38,11 +39,13 @@ SOURCES += \
 
 HEADERS += \
         dialogconnexion.h \
+    dialoginsertiontabletheo.h \
         mainwindow.h \
     dialoginsertionremi.h
 
 FORMS += \
         dialogconnexion.ui \
+    dialoginsertiontabletheo.ui \
         mainwindow.ui \
     dialoginsertionremi.ui
 
