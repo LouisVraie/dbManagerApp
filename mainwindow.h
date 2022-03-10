@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include <QVector>
 
 namespace Ui {
 class MainWindow;
@@ -60,6 +61,7 @@ private:
     //nolann.cpp
     QString req,nomColonne,resultat;
     int nbColonnes,nbLignes;
+    QVector<QVector<QString>> vectUserTable;
 
     //ugo.cpp
     QString currentTable;
