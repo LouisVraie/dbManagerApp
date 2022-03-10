@@ -43,6 +43,7 @@ private slots:
     //theo.cpp
     void on_pushButton_Executer_clicked();
     void afficherTableauUserRequest();
+    void on_pushButton_AddTable_clicked();
 
     //jonathan.cpp
     void on_action_Quiter_triggered();
@@ -51,6 +52,7 @@ private slots:
     void on_pushButton_Ajouter_clicked();
     void on_action_Disconnect_triggered();
 
+    //louis.cpp
     void on_pushButtonFilter_clicked();
 
 private:
