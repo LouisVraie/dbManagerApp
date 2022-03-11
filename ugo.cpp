@@ -159,7 +159,7 @@ void MainWindow::on_comboBox_Databases_activated(const QString &)
           db.setPassword(password);
           bool ok = db.open();
           qDebug()<<ok;
-
+    updateWindowTitle();
     ui->listWidget_Table->clear();//On clear la liste
     ui->tableWidget_Table->clear();//On clear le contenu des tables
 

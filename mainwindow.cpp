@@ -50,7 +50,7 @@ bool MainWindow::connection()
         database = connexion.getDatabaseName();
         databaseIp = connexion.getDatabaseIP();
 
-        setWindowTitle("dbManagerApp - "+database+" - "+username+"@"+databaseIp);
+        updateWindowTitle();
 
         remplirComboBox();
         afficherListeTable();
@@ -73,6 +73,7 @@ void MainWindow::initInputs()
     resultat = "";
     nbColonnes = 0;
     nbLignes = 0;
+    vectUserTable.clear();
 
     //ugo.cpp
     currentTable = "";

@@ -20,6 +20,9 @@ public:
     bool connection();
     void initInputs();
 
+    //louis.cpp
+    void updateWindowTitle();
+
     //ugo.cpp
     void afficherListeTable();
     void remplirComboBox();
