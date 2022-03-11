@@ -9,12 +9,6 @@ DialogConnexion::DialogConnexion(QWidget *parent) :
     ui(new Ui::DialogConnexion)
 {
     ui->setupUi(this);
-
-    ui->lineEditDialogUsername->setText("jlopez");
-    ui->lineEditDialogPassword->setText("elini01");
-    ui->lineEditDialogDatabaseName->setText("dbManagerApp_test");
-    ui->lineEditDatabaseIP->setText("172.28.100.3");
-
 }
 
 DialogConnexion::~DialogConnexion()
