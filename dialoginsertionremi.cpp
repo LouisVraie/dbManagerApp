@@ -32,27 +32,38 @@ DialogInsertionRemi::~DialogInsertionRemi()
 }
 
 /**
- * @brief Cette fonction sert a verifier si la ligne de tableWidget contient une case ne contenant rien
- * @param numLigneAVerif : Int contenant le numero de la ligne a verifier
- * @return Retourne un booléen vrai si la ligne contient une case vide
+ * @brief Cette fonction sert a verifier si la ligne de tableWidget est vide
+ * @param numLigne : Int contenant le numero de la ligne a verifier
+ * @return Retourne un booléen vrai si la ligne est vide
  */
-bool DialogInsertionRemi::isVide(int numLigneAVerif)
+bool DialogInsertionRemi::isRowEmpty(int numLigne)
 {
-    qDebug()<<"DialogInsertionRemi::isVide(QTableWidget tableau, int numLigneAVerif)";
+    qDebug()<<"DialogInsertionRemi::isRowEmpty(QTableWidget tableau, int numLigneAVerif)";
 
     int nbrColonne = ui->tableWidgetInsertion->columnCount();
-    //on defini un bool vide de base signifiant qu'on considere que l'item n'est pas vide de base
-    bool isVide = false;
+
+    //on defini un bool vide de base signifiant qu'on considere que la ligne n'est pas vide de base
+    bool isRowEmpty = false;
+
+    int nombreCaseEmpty = 0;
 
     //pour chaque colonne du TableWidget
     for (int compteur = 0; compteur < nbrColonne; compteur++ ) {
         //on regarde si la 1ere colonne est vide
-        if(ui->tableWidgetInsertion->item(numLigneAVerif, compteur)->text() == "")
+        if(ui->tableWidgetInsertion->item(numLigne, compteur)->text() == "")
         {
-            isVide = true;
+            nombreCaseEmpty++;
+            //on transforme les cases vides en null
+            ui->tableWidgetInsertion->item(numLigne, compteur)->setText("NULL");
         }
     }
-    return isVide;
+
+    //on verifie si le nombre de case vide corespond au nombre de colonne
+    if(ui->tableWidgetInsertion->columnCount() == nombreCaseEmpty)
+    {
+        isRowEmpty = true;
+    }
+    return isRowEmpty;
 }
 
 bool DialogInsertionRemi::quitConfirm()
@@ -91,6 +102,7 @@ void DialogInsertionRemi::createNewLigne()
     qDebug()<<"DialogInsertionRemi::createLigne";
     //compte le nombre de ligne existant et créé la suivante
     ui->tableWidgetInsertion->insertRow(ui->tableWidgetInsertion->rowCount());
+
 }
 
 /**
@@ -174,6 +186,12 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonEnregistrer_clicked";
 
+    //si la derniere ligne est vide on la supprime
+    if (isRowEmpty(ui->tableWidgetInsertion->rowCount()-1))
+    {
+        ui->tableWidgetInsertion->removeRow(ui->tableWidgetInsertion->rowCount()-1);
+    }
+
     //on cree un QVector qui contiendra le numero de la ligne ayant une erreur
     QVector<int> listeErreur;
 
@@ -202,45 +220,57 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
         //declaration de la requete d'insertion
         QString requeteInsertion = "INSERT INTO " + nomTableSelectionner + " VALUES (";
 
-        //pour chaque colonne
-        for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
+        //si la ligne n'est pas vide
+        if (!isRowEmpty(nombreLigne))
         {
-            //on créé une variable string qui contient la valeur de l'item selectionné
-            QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
 
-            qDebug()<<"vector = "<<listeTypeChamps;
-
-            valeurItem = MainWindow::gestionSpecialCaractere(valeurItem);
-
-            //si le champ est un varchar
-            if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
+            //pour chaque colonne
+            for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
             {
-                requeteInsertion += "'" + valeurItem + "', ";
+                //on créé une variable string qui contient la valeur de l'item selectionné
+                QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
+
+                qDebug()<<"vector = "<<listeTypeChamps;
+
+                valeurItem = MainWindow::gestionSpecialCaractere(valeurItem);
+
+                //si le champ est un type necessitant des ' d'insertions
+                if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
+                {
+                    qDebug()<<"if typeChamps";
+                    requeteInsertion += "'" + valeurItem + "', ";
+                    qDebug()<<"if after typeChamps";
+                }
+                else {
+                    requeteInsertion += valeurItem + ", ";
+                }
+            }
+            //on complete la requete pour qu'elle insere
+            //supprime les 2 derniers caracteres pour enlever ", "
+            requeteInsertion = requeteInsertion.remove(requeteInsertion.size()-2, 2);
+            requeteInsertion += ");";
+
+
+            //on execute la requete
+            QSqlQuery envoie(requeteInsertion);
+            qDebug()<<"requeteInsertion"<<requeteInsertion;
+
+            //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
+            if(envoie.lastError().text() == " "){
+                affichageConsole(requeteInsertion + " : " + "The request was successful");
             }
             else {
-                requeteInsertion += valeurItem + ", ";
+                affichageConsole(requeteInsertion + "   : " + envoie.lastError().text());
+                ifErrorRequete = true;
+                //on ajoute la ligne dans le vector contenant la liste des lignes ou se trouve des erreurs
+                listeErreur.append(nombreLigne);
             }
         }
-        //on complete la requete pour qu'elle insere
-        //supprime les 2 derniers caracteres pour enlever ", "
-        requeteInsertion = requeteInsertion.remove(requeteInsertion.size()-2, 2);
-        requeteInsertion += ");";
-
-        //on execute la requete
-        QSqlQuery envoie(requeteInsertion);
-        qDebug()<<"requeteInsertion"<<requeteInsertion;
-
-        //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
-        if(envoie.lastError().text() == " "){
-            affichageConsole(requeteInsertion + " : " + "The request was successful");
-        }
         else {
-            affichageConsole(requeteInsertion + "   : " + envoie.lastError().text());
-            ifErrorRequete = true;
-            //on ajoute la ligne dans le vector contenant la liste des lignes ou se trouve des erreurs
+            //on ajoute la ligne a celle des erreurs
             listeErreur.append(nombreLigne);
+            ifErrorRequete = true;
         }
-
     }
     //si y'il n'y a pas d'erreur lors de l'insertion on ferme la fenetre
     if(!ifErrorRequete)
@@ -249,11 +279,11 @@ void DialogInsertionRemi::on_pushButtonEnregistrer_clicked()
     }
     else {
         //si y'a des erreurs
-        //on boucle a l'envers pour faciliter la suppression
+        //on boucle en sens inverse pour faciliter la suppression
         for(int compteur = ui->tableWidgetInsertion->rowCount(); compteur >= 0; compteur-- )
         {
-            //on supprime les lignes qui n'appartiennent pas a la liste des erreurs
-            if(!listeErreur.contains(compteur))
+            //on supprime les lignes qui n'appartiennent pas a la liste des erreurs ou si la ligne est vide
+            if( (!listeErreur.contains(compteur)) || isRowEmpty(compteur) )
             {
                 ui->tableWidgetInsertion->removeRow(compteur);
             }

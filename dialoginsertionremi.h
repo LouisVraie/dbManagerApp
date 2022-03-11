@@ -14,10 +14,11 @@ class DialogInsertionRemi : public QDialog
 public:
     explicit DialogInsertionRemi(QWidget *parent = nullptr);
     ~DialogInsertionRemi();
+
     QString nomTableSelectionner;
 
-    //vérification espace vide
-    bool isVide(int numLigneAVerif);
+    //verification si la ligne contient une valeur
+    bool isRowEmpty(int numLigne);
 
     //creation des lignes
     void createNewLigne();
