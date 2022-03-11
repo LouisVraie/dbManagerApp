@@ -16,6 +16,9 @@ public:
     ~DialogInsertionRemi();
     QString nomTableSelectionner;
 
+    //vérification espace vide
+    bool isVide(int numLigneAVerif);
+
     //creation des lignes
     void createNewLigne();
 
