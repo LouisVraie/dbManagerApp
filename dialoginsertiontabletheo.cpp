@@ -106,45 +106,22 @@ void DialogInsertionTableTheo::on_pushButtonAddLigne_clicked()
 void DialogInsertionTableTheo::on_pushButtonEnregistrer_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonEnregistrer_clicked";
+    QString nom = ui->tableWidgetInsertion->item(0,0)->text();
+    bool key = ui->tableWidgetInsertion->item(0,3);
+    QString Prymarykey;
+    if(key==true){Prymarykey="Primary Key";}
+    else{Prymarykey="";}
+    //declaration de la requete de creation de table
+    QString txtRequeteCreationTable = "CREATE TABLE "+takeNameTable()+"( "+nom+" "+type->currentText()+" "+size->text()+" "+Prymarykey+"";
+    qDebug()<<txtRequeteCreationTable;
     //pour chaque ligne du QTableWidget
-    for (int nombreLigne = 0; nombreLigne < ui->tableWidgetInsertion->rowCount(); nombreLigne++)
+    for (int nombreLigne = 1; nombreLigne < ui->tableWidgetInsertion->rowCount(); nombreLigne++)
     {
-        qDebug()<<"for";
-        QString nom = ui->tableWidgetInsertion->item(nombreLigne,0)->text();
-        qDebug()<<"for";
-        //QString type = type->currentText();
-        qDebug()<<"for";
-        qDebug()<<"for";
-        bool key = ui->tableWidgetInsertion->item(nombreLigne,3);
-        QString Prymarykey;
-        if(key==true){Prymarykey="Primary Key";}
-        else{Prymarykey="";}
-        //declaration de la requete de creation de table
-        QString txtRequeteCreationTable = "CREATE TABLE "+takeNameTable()+"( "+nom+" "+type->currentText()+" "+size->text()+" "+Prymarykey+",nom VARCHAR(100))";
-        qDebug()<<txtRequeteCreationTable;
-        //pour chaque colonne
-        /*for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
-        {
-            //on créé une variable string qui contient la valeur de l'item selectionné
-            QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
 
-            qDebug()<<"vector = "<<listeTypeChamps;
-            //si le champ est un varchar
-            if (listeTypeChamps[nombreColonne].left(7) =="varchar" || listeTypeChamps[nombreColonne].left(4) == "date" || listeTypeChamps[nombreColonne].left(4) == "time")
-            {
-                requeteInsertion += "'" + valeurItem + "', ";
-            }
-            else {
-                requeteInsertion += valeurItem + ", ";
-            }
-        }
+        txtRequeteCreationTable +=","+nom+" "+type->currentText()+" "+size->text()+" "+Prymarykey+"";
         //on complete la requete pour qu'elle insere
-        //supprime les 2 derniers caracteres pour enlever ", "
-        requeteInsertion = requeteInsertion.remove(requeteInsertion.size()-2, 2);
-        requeteInsertion += ");";
-
         //on execute la requete
-        QSqlQuery envoie(requeteInsertion);
+        /*QSqlQuery envoie(requeteInsertion);
         qDebug()<<"requeteInsertion"<<requeteInsertion;
 
         //on affiche si la requete a reussi, ou le message d'erreur en cas d'echec
@@ -156,6 +133,8 @@ void DialogInsertionTableTheo::on_pushButtonEnregistrer_clicked()
         }*/
 
     }
+    txtRequeteCreationTable += ");";
+    qDebug()<<"Requete Finit"<<txtRequeteCreationTable;
 }
 
 /**

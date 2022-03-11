@@ -59,6 +59,7 @@ private slots:
     //louis.cpp
     void on_pushButtonFilter_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     //nolann.cpp

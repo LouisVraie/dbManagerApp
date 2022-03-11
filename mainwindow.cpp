@@ -93,3 +93,6 @@ void MainWindow::initInputs()
     on_pushButtonClearRequest_clicked();
     on_pushButtonClearResult_clicked();
 }
+
+
+
