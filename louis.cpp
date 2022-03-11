@@ -30,3 +30,13 @@ void MainWindow::on_pushButtonFilter_clicked()
     afficherTableUtilisateur();
     filter = "";
 }
+
+/**
+ * @brief MainWindow::updateWindowTitle
+ * Méthode publique de la classe MainWindow qui actualise le titre de la MainWindow
+ */
+void MainWindow::updateWindowTitle()
+{
+    qDebug()<<"void MainWindow::updateWindowTitle()";
+    setWindowTitle("dbManagerApp - "+database+" - "+username+"@"+databaseIp);
+}

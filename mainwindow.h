@@ -20,6 +20,9 @@ public:
     bool connection();
     void initInputs();
 
+    //louis.cpp
+    void updateWindowTitle();
+
     //ugo.cpp
     void afficherListeTable();
     void remplirComboBox();
@@ -55,6 +58,7 @@ private slots:
 
     //louis.cpp
     void on_pushButtonFilter_clicked();
+
 
 private:
     Ui::MainWindow *ui;
