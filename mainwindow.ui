@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
-    <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
+    <normaloff>:/images/images/logoDBManagerApp-removebg-preview.png</normaloff>:/images/images/logoDBManagerApp-removebg-preview.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(38, 51, 65);
@@ -34,9 +34,7 @@ color: rgb(255, 255, 255);</string>
          <widget class="QLabel" name="labelSelectedDatabase">
           <property name="font">
            <font>
-            <family>Lato</family>
             <pointsize>12</pointsize>
-            <weight>75</weight>
             <italic>true</italic>
             <bold>true</bold>
            </font>
@@ -56,9 +54,7 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="font">
            <font>
-            <family>Lato</family>
             <pointsize>12</pointsize>
-            <weight>75</weight>
             <italic>false</italic>
             <bold>true</bold>
            </font>
@@ -81,9 +77,7 @@ color: rgb(255, 255, 255);</string>
          <widget class="QLabel" name="labelTableList">
           <property name="font">
            <font>
-            <family>Lato</family>
             <pointsize>12</pointsize>
-            <weight>75</weight>
             <italic>true</italic>
             <bold>true</bold>
            </font>
@@ -115,9 +109,7 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="font">
            <font>
-            <family>Lato</family>
             <pointsize>12</pointsize>
-            <weight>75</weight>
             <italic>false</italic>
             <bold>true</bold>
            </font>
@@ -143,9 +135,7 @@ color: rgb(255, 255, 255);</string>
            <widget class="QPushButton" name="pushButton_AddTable">
             <property name="font">
              <font>
-              <family>Lato</family>
               <pointsize>14</pointsize>
-              <weight>75</weight>
               <italic>true</italic>
               <bold>true</bold>
              </font>
@@ -201,9 +191,7 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="font">
             <font>
-             <family>Lato</family>
              <pointsize>14</pointsize>
-             <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
             </font>
@@ -232,9 +220,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QLineEdit" name="lineEditFilter">
                  <property name="font">
                   <font>
-                   <family>Source Code Pro</family>
                    <pointsize>11</pointsize>
-                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -248,9 +234,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QPushButton" name="pushButtonFilter">
                  <property name="font">
                   <font>
-                   <family>Lato</family>
                    <pointsize>13</pointsize>
-                   <weight>75</weight>
                    <italic>true</italic>
                    <bold>true</bold>
                   </font>
@@ -303,9 +287,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QPushButton" name="pushButton_Ajouter">
                  <property name="font">
                   <font>
-                   <family>Lato</family>
                    <pointsize>14</pointsize>
-                   <weight>75</weight>
                    <italic>true</italic>
                    <bold>true</bold>
                   </font>
@@ -342,9 +324,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QPushButton" name="pushButton_Sauvegarder">
                  <property name="font">
                   <font>
-                   <family>Lato</family>
                    <pointsize>14</pointsize>
-                   <weight>75</weight>
                    <italic>true</italic>
                    <bold>true</bold>
                   </font>
@@ -381,9 +361,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QPushButton" name="pushButton_Supprimer">
                  <property name="font">
                   <font>
-                   <family>Lato</family>
                    <pointsize>14</pointsize>
-                   <weight>75</weight>
                    <italic>true</italic>
                    <bold>true</bold>
                   </font>
@@ -440,9 +418,7 @@ color: rgb(255, 255, 255);</string>
                   <widget class="QLabel" name="labelPersonnalRequest">
                    <property name="font">
                     <font>
-                     <family>Lato</family>
                      <pointsize>12</pointsize>
-                     <weight>75</weight>
                      <italic>true</italic>
                      <bold>true</bold>
                     </font>
@@ -456,9 +432,7 @@ color: rgb(255, 255, 255);</string>
                   <widget class="QPlainTextEdit" name="plainTextEdit_RequeteSQL">
                    <property name="font">
                     <font>
-                     <family>Source Code Pro</family>
                      <pointsize>12</pointsize>
-                     <weight>50</weight>
                      <italic>false</italic>
                      <bold>false</bold>
                     </font>
@@ -488,9 +462,7 @@ color: rgb(255, 255, 255);</string>
                     <widget class="QPushButton" name="pushButton_Executer">
                      <property name="font">
                       <font>
-                       <family>Lato</family>
                        <pointsize>14</pointsize>
-                       <weight>75</weight>
                        <italic>true</italic>
                        <bold>true</bold>
                       </font>
@@ -514,9 +486,7 @@ color: rgb(255, 255, 255);</string>
                     <widget class="QPushButton" name="pushButtonClearRequest">
                      <property name="font">
                       <font>
-                       <family>Lato</family>
                        <pointsize>14</pointsize>
-                       <weight>75</weight>
                        <italic>true</italic>
                        <bold>true</bold>
                       </font>
@@ -546,9 +516,7 @@ color: rgb(255, 255, 255);</string>
                   <widget class="QLabel" name="labelRequestResult">
                    <property name="font">
                     <font>
-                     <family>Lato</family>
                      <pointsize>12</pointsize>
-                     <weight>75</weight>
                      <italic>true</italic>
                      <bold>true</bold>
                     </font>
@@ -587,9 +555,7 @@ color: rgb(255, 255, 255);</string>
                     <widget class="QPushButton" name="pushButtonClearResult">
                      <property name="font">
                       <font>
-                       <family>Lato</family>
                        <pointsize>14</pointsize>
-                       <weight>75</weight>
                        <italic>true</italic>
                        <bold>true</bold>
                       </font>
@@ -639,7 +605,6 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="font">
             <font>
-             <family>Source Code Pro</family>
              <pointsize>12</pointsize>
             </font>
            </property>
@@ -661,7 +626,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>825</width>
-     <height>24</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_Menu">

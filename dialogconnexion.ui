@@ -14,7 +14,7 @@
    <string>dbManagerApp - Connection</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="images.qrc">
     <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
   </property>
   <property name="styleSheet">
@@ -45,31 +45,15 @@ color: rgb(255, 255, 255);</string>
           <widget class="QLabel" name="labelLogoApp">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>80</height>
+             <width>200</width>
+             <height>200</height>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">image: url(:/images/images/logo_app_1.png);</string>
+            <string notr="true">image: url(:/images/images/logoDBManagerApp-removebg-preview.png);</string>
            </property>
            <property name="text">
             <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="labelTitle">
-           <property name="font">
-            <font>
-             <family>Lato</family>
-             <pointsize>20</pointsize>
-             <weight>75</weight>
-             <italic>true</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>dbManagerApp</string>
            </property>
           </widget>
          </item>
@@ -109,7 +93,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="labelDialogUsername">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>true</italic>
           </font>
@@ -123,7 +106,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="lineEditDialogUsername">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>false</italic>
           </font>
@@ -134,7 +116,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="labelDialogPassword">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>true</italic>
           </font>
@@ -148,7 +129,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="lineEditDialogPassword">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>false</italic>
           </font>
@@ -162,7 +142,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="labelDialogDatabaseName">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>true</italic>
           </font>
@@ -176,7 +155,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="lineEditDialogDatabaseName">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>false</italic>
           </font>
@@ -190,7 +168,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLabel" name="labelDialogDatabaseIP">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>true</italic>
           </font>
@@ -204,7 +181,6 @@ color: rgb(255, 255, 255);</string>
         <widget class="QLineEdit" name="lineEditDatabaseIP">
          <property name="font">
           <font>
-           <family>Lato</family>
            <pointsize>14</pointsize>
            <italic>false</italic>
           </font>
@@ -234,9 +210,7 @@ color: rgb(255, 255, 255);</string>
           <widget class="QLabel" name="labelError">
            <property name="font">
             <font>
-             <family>Lato</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
             </font>
@@ -299,9 +273,7 @@ color: rgb(255, 255, 255);</string>
           <widget class="QPushButton" name="pushButtonDialogConnection">
            <property name="font">
             <font>
-             <family>Lato</family>
              <pointsize>14</pointsize>
-             <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
             </font>
@@ -313,7 +285,7 @@ color: rgb(255, 255, 255);</string>
             <string> Connection</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="images.qrc">
              <normaloff>:/images/images/logo_login.png</normaloff>:/images/images/logo_login.png</iconset>
            </property>
            <property name="iconSize">
@@ -344,9 +316,7 @@ color: rgb(255, 255, 255);</string>
           <widget class="QPushButton" name="pushButtonDialogDelete">
            <property name="font">
             <font>
-             <family>Lato</family>
              <pointsize>14</pointsize>
-             <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
             </font>
@@ -355,7 +325,7 @@ color: rgb(255, 255, 255);</string>
             <string>  Clear</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="images.qrc">
              <normaloff>:/images/images/logo_delete_button_earaser.png</normaloff>:/images/images/logo_delete_button_earaser.png</iconset>
            </property>
            <property name="iconSize">
@@ -386,9 +356,7 @@ color: rgb(255, 255, 255);</string>
           <widget class="QPushButton" name="pushButtonClose">
            <property name="font">
             <font>
-             <family>Lato</family>
              <pointsize>14</pointsize>
-             <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
             </font>
@@ -397,7 +365,7 @@ color: rgb(255, 255, 255);</string>
             <string> Close</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="images.qrc">
              <normaloff>:/images/images/logo_close.png</normaloff>:/images/images/logo_close.png</iconset>
            </property>
           </widget>
@@ -423,6 +391,8 @@ color: rgb(255, 255, 255);</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
