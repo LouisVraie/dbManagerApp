@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
-    <normaloff>:/images/images/logo_app_1.png</normaloff>:/images/images/logo_app_1.png</iconset>
+    <normaloff>:/images/images/logoDBManagerApp-removebg-preview.png</normaloff>:/images/images/logoDBManagerApp-removebg-preview.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(38, 51, 65);
