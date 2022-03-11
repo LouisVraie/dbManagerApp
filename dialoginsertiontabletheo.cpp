@@ -11,15 +11,23 @@
 #include <QScrollBar>
 #include <QComboBox>
 #include <QCheckBox>
+#include <QFile>
+#include <QVector>
 
 DialogInsertionTableTheo::DialogInsertionTableTheo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogInsertionTableTheo)
 {
     ui->setupUi(this);
+
     ui->tableWidgetInsertion->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidgetInsertion->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    qDebug()<<"connect";
+
     createNewLigne();
+    activeDesactiveSize();
+    connect(type,SIGNAL(currentTextChanged(QString)),this,SLOT(activeDesactiveSize()));
+    qDebug()<<"apres connect";
 }
 
 DialogInsertionTableTheo::~DialogInsertionTableTheo()
@@ -35,10 +43,27 @@ void DialogInsertionTableTheo::createNewLigne()
     qDebug()<<"DialogInsertionRemi::createLigne";
     //compte le nombre de ligne existant et créé la suivante
     ui->tableWidgetInsertion->insertRow(ui->tableWidgetInsertion->rowCount());
-    QComboBox* myComboBox = new QComboBox();
     int ligne = ui->tableWidgetInsertion->rowCount()-1;
     qDebug()<<ligne;
-    ui->tableWidgetInsertion->setCellWidget(ligne,1,myComboBox);
+    type= new QComboBox(ui->tableWidgetInsertion);
+    size=new QLineEdit(ui->tableWidgetInsertion);
+    QFile file("../dbManagerApp/dataTypes.txt");
+    QVector <QString> strings;
+    int ligneType =0;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            strings.append(in.readLine().split(" ").toVector());
+
+            QString Type=strings[ligneType];
+            ligneType++;
+            type->addItem(Type);
+            qDebug()<<"Types :"<<type;
+        }
+    }
+    ui->tableWidgetInsertion->setCellWidget(ligne,1,type);
+    ui->tableWidgetInsertion->setCellWidget(ligne,2,size);
     ui->tableWidgetInsertion->setCellWidget(ligne,3,new QCheckBox);
 }
 /**
@@ -81,31 +106,24 @@ void DialogInsertionTableTheo::on_pushButtonAddLigne_clicked()
 void DialogInsertionTableTheo::on_pushButtonEnregistrer_clicked()
 {
     qDebug()<<"DialogInsertionRemi::on_pushButtonEnregistrer_clicked";
-
-    //requete sql pour avoir les types de valeurs des champs
-    QString requeteTypeChamp = "DESC "+nomTableSelectionner;
-    qDebug()<<"requeteTypeChamp = "<<requeteTypeChamp;
-
-    QSqlQuery query(requeteTypeChamp);
-
-    //on créé le vector
-    QVector<QString> listeTypeChamps;
-
-    //tant qu'il existe une requete suivante
-    while (query.next())
-    {
-        //on push les types des champsdans un vector
-        listeTypeChamps.push_back( query.value(1).toString() );
-    }
-
     //pour chaque ligne du QTableWidget
     for (int nombreLigne = 0; nombreLigne < ui->tableWidgetInsertion->rowCount(); nombreLigne++)
     {
-        //declaration de la requete d'insertion
-        QString requeteInsertion = "INSERT INTO " + nomTableSelectionner + " VALUES (";
-
+        qDebug()<<"for";
+        QString nom = ui->tableWidgetInsertion->item(nombreLigne,0)->text();
+        qDebug()<<"for";
+        //QString type = type->currentText();
+        qDebug()<<"for";
+        qDebug()<<"for";
+        bool key = ui->tableWidgetInsertion->item(nombreLigne,3);
+        QString Prymarykey;
+        if(key==true){Prymarykey="Primary Key";}
+        else{Prymarykey="";}
+        //declaration de la requete de creation de table
+        QString txtRequeteCreationTable = "CREATE TABLE "+takeNameTable()+"( "+nom+" "+type->currentText()+" "+size->text()+" "+Prymarykey+",nom VARCHAR(100))";
+        qDebug()<<txtRequeteCreationTable;
         //pour chaque colonne
-        for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
+        /*for (int nombreColonne = 0; nombreColonne < ui->tableWidgetInsertion->columnCount(); nombreColonne++ )
         {
             //on créé une variable string qui contient la valeur de l'item selectionné
             QString valeurItem = ui->tableWidgetInsertion->item(nombreLigne, nombreColonne)->text();
@@ -135,7 +153,7 @@ void DialogInsertionTableTheo::on_pushButtonEnregistrer_clicked()
         }
         else {
             affichageConsole(requeteInsertion + " : " + envoie.lastError().text());
-        }
+        }*/
 
     }
 }
@@ -172,4 +190,12 @@ void DialogInsertionTableTheo::on_lineEditDatabaseName_textEdited(const QString 
     QString nomeTable;
     nomeTable=arg1;
     ui->label_Requetefinal->setText(nomeTable);
+}
+
+void DialogInsertionTableTheo::activeDesactiveSize()
+{
+    QString typ=type->currentText();
+    qDebug()<<"Type Selectionne :"<<type;
+    bool active= typ=="VARCHAR"|| typ=="NUMERIC" ||typ=="SET" || typ== "ENUM" || typ== "TINYTEXT" || typ=="TEXT" || typ=="MEDIUMTEXT" || typ=="LONGTEXT" || typ=="INT" || typ=="INTEGER" || typ=="FLOAT";
+    size->setEnabled(active);
 }

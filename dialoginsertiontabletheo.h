@@ -2,6 +2,7 @@
 #define DIALOGINSERTIONTABLETHEO_H
 
 #include <QDialog>
+#include <QComboBox>
 
 namespace Ui {
 class DialogInsertionTableTheo;
@@ -44,9 +45,12 @@ private slots:
     QString takeNameTable();
 
     void on_lineEditDatabaseName_textEdited(const QString &arg1);
+    void activeDesactiveSize();
 
 private:
     Ui::DialogInsertionTableTheo *ui;
+    QComboBox* type;
+    QLineEdit* size;
 };
 
 #endif // DIALOGINSERTIONTABLETHEO_H
